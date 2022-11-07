@@ -1,0 +1,1 @@
+(()=>{"use strict";function e(e,t,o,i){return{title:e,description:t,dueDate:o,priority:i,getToDoItem:()=>e+t}}let t=e("Shopping. ","Need to buy groceries.","Tuesday.","Number one priority.");console.log(t.getToDoItem()),e()})();
