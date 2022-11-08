@@ -8,7 +8,24 @@
 </head>
 <body>
 
-    <div id="container"></div>
+    <button> Add task </button>
+
+    <div id="container">
+        <input type="text" placeholder="Title" onchange="createNewToDo(this.title)">
+        <input type="text" placeholder="Description">
+        <input type="date" placeholder="Due date">
+        <div id="urgency-checkbox">
+            <label for="low-prio"> Low Priority</label>
+            <input type="checkbox" id="low-prio">
+
+            <label for="med-prio"> Medium Priority</label>
+            <input type="checkbox" id="med-prio">
+
+            <label for="high-prio"> High Priority</label>
+            <input type="checkbox" id="high-prio">
+        </div>
+        
+    </div>
     
     <script src="main.js"></script>
 </body>

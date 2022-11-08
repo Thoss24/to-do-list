@@ -1,1 +1,0 @@
-(()=>{"use strict";const t=new function(t,e,i,n){this.title="Shopping",this.description="Groceries",this.dueDate="Tuesday",this.priority="Urgent"}("Shopping","Groceries","Tuesday","Urgent");!function(){const e=document.getElementById("container"),i=document.createElement("div");i.textContent=t.title+" "+t.description+" "+t.dueDate+" "+t.priority,e.appendChild(i)}()})();
