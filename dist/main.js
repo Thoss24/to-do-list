@@ -1,0 +1,1 @@
+(()=>{"use strict";const e=new class{constructor(e){this.projectName=e,this.toDos=[]}selectName(e){this.name=e,console.log(this.name)}retrieveName(){return this.name}selectToDos(e){this.toDos=e}retrieveToDos(){return this.toDos}retrieveToDo(e){return this.toDos.find((t=>t.retrieveName()===e))}};console.log(e.toDos)})();
