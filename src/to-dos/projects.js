@@ -5,7 +5,7 @@ export default class Projects {
         this.toDos = []
     }
 
-    selectName(name) {
+    selectName(name) { // all methods will be applied to the prototype of the Projects class
         this.name = name
         console.log(this.name)
     }
