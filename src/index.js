@@ -1,3 +1,2 @@
-import addToDo from "./to-dos/to-do";
+import toDo from "./to-dos/to-do";
 
-addToDo()
