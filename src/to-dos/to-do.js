@@ -46,6 +46,11 @@ export default class toDo {
     getToDoDate() {
         return this.dueDate
     }
+
+    greet() {
+        console.log(this.name)
+        console.log(this.dueDate)
+    }
 }
 
 
