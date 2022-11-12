@@ -1,4 +1,5 @@
 import toDo from "./to-dos/to-do";
+import "./styles/to-dos.css";
 
 const toDoButton = document.getElementById('to-do-button');
 
