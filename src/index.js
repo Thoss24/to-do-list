@@ -7,20 +7,31 @@ const toDoButton = document.getElementById('to-do-button');
 const taskUi = document.getElementById('task-container');
 const addTaskButton = document.getElementById('add-task-button');
 
+//Event listener to display add task ui
+addTaskButton.addEventListener('click', () => {
+    taskUi.style.display = "flex";
+ });
+
 // Event listener to generate new task 
 toDoButton.addEventListener('click', (e) => {
     e.preventDefault();
     const name = document.getElementById('submit-toDo').value;
     const date = document.getElementById('due-date').value;
+    
+    taskUi.style.display = "none";
 
     const newToDo = new toDo(name, date)
     newToDo.greet()
 });
 
-//Event listener to display add task ui
-addTaskButton.addEventListener('click', () => {
-   taskUi.style.display = "flex";
-});
+
+// make it so that to-dos are unique to each project. i.e, different to-dos for each project
+
+// similar logic to produce new Projects and then append tasks to those new projects.
+
+
+
+
 
 
 
