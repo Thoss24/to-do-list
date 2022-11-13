@@ -1,6 +1,14 @@
 #task-container {
-    display: flex;
+    display: none;
     flex-direction: column;
-    align-items: center;
-    
+    width: 200px;
+    height:200px;
+}
+
+#add-task-button-container {
+    display: flex;
+}
+
+#add-task-button {
+    border-radius: 8px;
 }

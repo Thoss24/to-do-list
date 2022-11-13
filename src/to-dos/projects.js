@@ -5,7 +5,7 @@ export default class Project {
         this.toDos = []
     }
 
-    addToDo() {
-        
-    }
+   checkArray() {
+    console.log(this.toDos)
+   }
 }
