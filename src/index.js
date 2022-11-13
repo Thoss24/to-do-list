@@ -29,6 +29,8 @@ toDoButton.addEventListener('click', (e) => {
 
 // similar logic to produce new Projects and then append tasks to those new projects.
 
+// add make project section. make new tasks only appear within new project
+
 
 
 
