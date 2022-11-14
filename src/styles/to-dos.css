@@ -12,3 +12,7 @@
 #add-task-button {
     border-radius: 8px;
 }
+
+#cancel-task-button {
+    display: none;
+}
