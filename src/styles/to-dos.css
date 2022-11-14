@@ -39,3 +39,7 @@
 #cancel-add-project {
     display: none;
 }
+
+#submit-project-button {
+    display: none;
+}
