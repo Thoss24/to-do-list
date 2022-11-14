@@ -1,3 +1,4 @@
+/* to dos */
 #task-container {
     display: none;
     flex-direction: column;
@@ -7,13 +8,34 @@
 
 #add-task-button-container {
     display: flex;
-    margin: 20px;
+    margin-top: 20px;
 }
 
 #add-task-button {
-    border-radius: 8px;
+    
 }
 
 #cancel-task-button {
+    display: none;
+}
+
+/* projects */
+
+#new-project-container {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+#add-project-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+#project-name {
+    display: none;
+}
+
+#cancel-add-project {
     display: none;
 }

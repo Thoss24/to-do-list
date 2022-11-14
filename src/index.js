@@ -6,13 +6,23 @@ import "./styles/to-dos.css";
 const toDoButton = document.getElementById('to-do-button');
 const taskUi = document.getElementById('task-container');
 const addTaskButton = document.getElementById('add-task-button');
-const cancelTaskButton = document.getElementById('cancel-task-button')
+const cancelTaskButton = document.getElementById('cancel-task-button');
+const addProjectButton = document.getElementById('add-project');
+const projectName = document.getElementById('project-name');
+const cancelProjectButton = document.getElementById('cancel-add-project');
 
+// Event listener to generate new Project and to display add project name
+addProjectButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    projectName.style.display = "flex";
+    cancelProjectButton.style.display = "flex"
+});
 
-
-
-
-
+//Event listener to cancel add project
+cancelProjectButton.addEventListener('click', () => {
+    projectName.style.display = "none";
+    cancelProjectButton.style.display = "none"
+})
 
 //Event listener to display add task ui
 addTaskButton.addEventListener('click', () => {
