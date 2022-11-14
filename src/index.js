@@ -8,6 +8,12 @@ const taskUi = document.getElementById('task-container');
 const addTaskButton = document.getElementById('add-task-button');
 const cancelTaskButton = document.getElementById('cancel-task-button')
 
+
+
+
+
+
+
 //Event listener to display add task ui
 addTaskButton.addEventListener('click', () => {
     taskUi.style.display = "flex";

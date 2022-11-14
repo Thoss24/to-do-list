@@ -7,6 +7,7 @@
 
 #add-task-button-container {
     display: flex;
+    margin: 20px;
 }
 
 #add-task-button {
