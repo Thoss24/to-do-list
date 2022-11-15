@@ -13,7 +13,7 @@ const cancelProjectButton = document.getElementById('cancel-add-project');
 const submitProjectButton = document.getElementById('submit-project-button');
 
 // Event listener to generate new Project and to display add project name
-addProjectButton.addEventListener('click', (e) => {
+addProjectButton.addEventListener('click', () => {
     projectName.style.display = "flex";
     cancelProjectButton.style.display = "flex";
     submitProjectButton.style.display = "flex";
@@ -24,6 +24,7 @@ cancelProjectButton.addEventListener('click', () => {
     projectName.style.display = "none";
     cancelProjectButton.style.display = "none";
     submitProjectButton.style.display = "none";
+    taskUi.style.display = "none"
 });
 
 //Event listener to generate new Project
@@ -33,6 +34,14 @@ submitProjectButton.addEventListener('click', (e) => {
 
     const newProject = new Project(newProjectName);
     newProject.checkName();
+
+    const name = document.getElementById('submit-toDo').value;
+    const date = document.getElementById('due-date').value;
+    
+    taskUi.style.display = "flex";
+
+    const newToDo = new toDo(name, date)
+    newToDo.greet()
 });
 
 //Event listener to display add task ui
@@ -42,22 +51,17 @@ addTaskButton.addEventListener('click', () => {
  });
 
  //Event listener to cancel add task
- cancelTaskButton.addEventListener('click', (e) => {
+ cancelTaskButton.addEventListener('click', () => {
     taskUi.style.display = "none";
     cancelTaskButton.style.display = "none";
  })
 
 // Event listener to generate new task 
 submitToDoButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('submit-toDo').value;
-    const date = document.getElementById('due-date').value;
     
-    taskUi.style.display = "none";
-
-    const newToDo = new toDo(name, date)
-    newToDo.greet()
 });
+
+
 
 
 // make it so that to-dos are unique to each project. i.e, different to-dos for each project
