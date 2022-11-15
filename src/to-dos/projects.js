@@ -21,7 +21,7 @@ export default class Project {
         return this.toDos
     }
 
-   checkName() {
-    console.log(this.name)
+   checkArray() {
+    console.log(this.toDos)
    }
 }

@@ -28,20 +28,27 @@ cancelProjectButton.addEventListener('click', () => {
 });
 
 //Event listener to generate new Project
-submitProjectButton.addEventListener('click', (e) => {
-    e.preventDefault();
+submitProjectButton.addEventListener('click', (task) => {
+    task.preventDefault();
     const newProjectName = projectName.value;
 
     const newProject = new Project(newProjectName);
-    newProject.checkName();
-
-    const name = document.getElementById('submit-toDo').value;
-    const date = document.getElementById('due-date').value;
+    newProject.checkArray();
     
     taskUi.style.display = "flex";
 
-    const newToDo = new toDo(name, date)
-    newToDo.greet()
+    submitToDoButton.addEventListener('click', () => {
+        const name = document.getElementById('submit-toDo').value;
+        const date = document.getElementById('due-date').value;
+
+        const newToDo = new toDo(name, date);
+        newToDo.greet();
+
+        newProject.toDos.push(newToDo);
+        newProject.checkArray();
+    });
+    
+
 });
 
 //Event listener to display add task ui
@@ -55,12 +62,6 @@ addTaskButton.addEventListener('click', () => {
     taskUi.style.display = "none";
     cancelTaskButton.style.display = "none";
  })
-
-// Event listener to generate new task 
-submitToDoButton.addEventListener('click', (e) => {
-    
-});
-
 
 
 
