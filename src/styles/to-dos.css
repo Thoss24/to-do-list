@@ -27,7 +27,7 @@
     align-items: center;
     width: 150px;
     height: 40px;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -44,12 +44,23 @@
 
 #project-name {
     display: none;
+    height: 40px;
+    font-size: 16px;
 }
 
 #cancel-add-project {
     display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 #submit-project-button {
     display: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    height: 40px;
 }
