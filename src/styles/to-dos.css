@@ -21,6 +21,16 @@
 
 /* projects */
 
+#add-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 40px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
 #new-project-container {
     display: flex;
     flex-direction: column;
