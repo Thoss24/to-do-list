@@ -4,6 +4,28 @@
     flex-direction: column;
     width: 200px;
     height:200px;
+    margin-top: 20px;
+}
+
+#submit-toDo {
+    display: flex;
+    height: 40px;
+    font-size: 16px;
+}
+
+#due-date {
+    display: flex;
+    height: 30px;
+    font-size: 13px;
+}
+
+#submit-to-do-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    height: 40px;
 }
 
 /* projects */
