@@ -6,19 +6,6 @@
     height:200px;
 }
 
-#add-task-button-container {
-    display: flex;
-    margin-top: 20px;
-}
-
-#add-task-button {
-    
-}
-
-#cancel-task-button {
-    display: none;
-}
-
 /* projects */
 
 #add-project {

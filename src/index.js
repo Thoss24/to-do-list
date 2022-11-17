@@ -48,28 +48,7 @@ submitProjectButton.addEventListener('click', (task) => {
         newProject.checkArray();
     });
     
-
 });
-
-//Event listener to display add task ui
-addTaskButton.addEventListener('click', () => {
-    taskUi.style.display = "flex";
-    cancelTaskButton.style.display = "flex";
- });
-
- //Event listener to cancel add task
- cancelTaskButton.addEventListener('click', () => {
-    taskUi.style.display = "none";
-    cancelTaskButton.style.display = "none";
- })
-
-
-
-// make it so that to-dos are unique to each project. i.e, different to-dos for each project
-
-// similar logic to produce new Projects and then append tasks to those new projects.
-
-// add make project section. make new tasks only appear within new project
 
 
 
