@@ -44,14 +44,13 @@ submitProjectButton.addEventListener('click', (task) => {
         const newToDo = new toDo(name, date);
         newToDo.greet();
 
-        newProject.toDos.push(newToDo);
+        // newProject.toDos.push(newToDo);
         newProject.checkArray();
     });
     
 });
 
-
-
+// USE FUNCTIONS IN PROJECTS.JS TO EXPERIMENT WITH RETRIEVING DATA INPUT BY USER
 
 
 
