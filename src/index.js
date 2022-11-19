@@ -44,8 +44,9 @@ submitProjectButton.addEventListener('click', (task) => {
         const newToDo = new toDo(name, date);
         newToDo.greet();
 
-        // newProject.toDos.push(newToDo);
+        newProject.toDos.push(newToDo);
         newProject.checkArray();
+      
     });
     
 });

@@ -32,7 +32,7 @@ export default class Project {
     addToDo(newToDo) {
         if (this.toDos.find((toDo) => toDo.retrieveName() === newToDo.name)) return
         this.toDos.push(newToDo)
-    }
+    }           
 
    checkArray() {
     console.log(this.toDos)
