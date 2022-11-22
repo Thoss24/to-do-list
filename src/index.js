@@ -51,6 +51,9 @@ submitProjectButton.addEventListener('click', (task) => {
     
 });
 
+
+
+
 // USE FUNCTIONS IN PROJECTS.JS TO EXPERIMENT WITH RETRIEVING DATA INPUT BY USER
 
 
