@@ -1,6 +1,8 @@
 import toDo from "./to-dos/to-do";
 import Project from "./to-dos/projects";
+import TodoList from "./to-dos/to_do_list";
 import "./styles/to-dos.css";
+
 
 // DOM elements
 const submitToDoButton = document.getElementById('submit-to-do-button');
