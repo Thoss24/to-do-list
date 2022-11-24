@@ -21,10 +21,11 @@ export default class toDo {
         return this.dueDate
     }
 
-    greet() {
-        console.log(this.name)
-        console.log(this.dueDate)
-    }
+//     greet() {
+//         console.log(this.name)
+//         console.log(this.dueDate)
+//     }
+
 }
 
 

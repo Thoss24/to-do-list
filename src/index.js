@@ -35,7 +35,7 @@ submitProjectButton.addEventListener('click', (task) => {
     const newProjectName = projectName.value;
 
     const newProject = new Project(newProjectName);
-    newProject.checkArray();
+    // newProject.checkArray();
     
     taskUi.style.display = "flex";
 
@@ -44,19 +44,27 @@ submitProjectButton.addEventListener('click', (task) => {
         const date = document.getElementById('due-date').value;
 
         const newToDo = new toDo(name, date);
-        newToDo.greet();
+        // newToDo.greet();
 
         newProject.toDos.push(newToDo);
-        newProject.checkArray();
+        // newProject.checkArray();
       
     });
-    
 });
 
+submitProjectButton.addEventListener('click', () => {
+
+    const toDoList = new TodoList()
+
+    toDoList.setProjects();
+    toDoList.retrieveProjects();
+    toDoList.retrieveProjectName();
+    toDoList.addProject();
+    toDoList.checkProjects();
+})
 
 
 
-// USE FUNCTIONS IN PROJECTS.JS TO EXPERIMENT WITH RETRIEVING DATA INPUT BY USER
 
 
 

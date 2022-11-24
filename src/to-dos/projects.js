@@ -34,8 +34,8 @@ export default class Project {
         this.toDos.push(newToDo)
     }           
 
-   checkArray() {
-    console.log(this.toDos)
-    console.log(this.name)
-   }
+//    checkArray() {
+//     console.log(this.toDos)
+//     console.log(this.name)
+//    }
 }
