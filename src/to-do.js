@@ -1,11 +1,8 @@
-function createToDo(title, description, dueDate, priority) {
-    return {
-        title: title,
-        description: description,
-        dueDate: dueDate,
-        priority: priority,
-        displayInfo() {
-            console.log(title, description, dueDate, priority)
-        }
+class toDo {
+    constructor(title, description, date, priority) {
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.priority = priority;
     }
 }
