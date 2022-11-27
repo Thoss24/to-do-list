@@ -1,1 +1,1 @@
-console.log("hello");
+(()=>{"use strict";const t=document.getElementById("project-name");document.getElementById("project-name-button").addEventListener("click",(()=>{const e=t.value;new class{constructor(t){this.title=t,this.toDo=[]}checkName(){console.log(this.title)}}(e).checkName()}))})();
