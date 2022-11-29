@@ -17,7 +17,7 @@ projectNameButton.addEventListener('click', () => {
 })
 
 
-// Figure out how to store projects in a seperate folder
+// Now store to-dos in each project
 
 
 
