@@ -4,7 +4,7 @@ import Projects from "./project";
 const projectName = document.getElementById('project-name');
 const projectNameButton = document.getElementById('project-name-button')
 
-
+const allProjects = []
 
 projectNameButton.addEventListener('click', () => {
     const userInputTitle = projectName.value
@@ -12,8 +12,8 @@ projectNameButton.addEventListener('click', () => {
     const newProject = new Projects(userInputTitle)
     newProject.checkName()
 
-    newProject.projects.push(newProject)
-    newProject.test()
+   allProjects.push(newProject)
+   console.log(allProjects)
 })
 
 

@@ -2,7 +2,6 @@ class Projects {
     constructor(title) {
         this.title = title;
         this.toDo = [];
-        this.projects = []
     }
 
     checkName() {
@@ -10,11 +9,7 @@ class Projects {
         
     }
 
-    test() {
-        for (let i = 0; i < this.projects.length; i++) {
-            console.log(i)
-        }
-    }
+
 }
 
 export default Projects
