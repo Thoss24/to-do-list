@@ -5,4 +5,10 @@ class toDo {
         this.date = date;
         this.priority = priority;
     }
+
+    checkToDoName() {
+        console.log(this.title)
+    }
 }
+
+export default toDo
