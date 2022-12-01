@@ -1,3 +1,5 @@
+import Projects from "./project";
+
 class toDo {
     constructor(title, description, date, priority) {
         this.title = title;
@@ -9,6 +11,8 @@ class toDo {
     checkToDoName() {
         console.log(this.title)
     }
+
+   
 }
 
 export default toDo

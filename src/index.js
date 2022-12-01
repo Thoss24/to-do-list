@@ -18,12 +18,12 @@ projectNameButton.addEventListener('click', () => {
     console.log(allProjects)
 });
 
-toDoNameButton.addEventListener('click', () => {
-    const userInputToDoName = toDoName.value;
+// toDoNameButton.addEventListener('click', () => {
+//     const userInputToDoName = toDoName.value;
 
-    const newToDo = new toDo(userInputToDoName);
-    
-})
+//     const newToDo = new toDo(userInputToDoName);
+//     newToDo.sendToProjectArray()
+// })
 
 
 // Now store to-dos in each project
