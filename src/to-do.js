@@ -8,10 +8,6 @@ class toDo {
         this.priority = priority;
     }
 
-    checkToDoName() {
-        console.log(this.title)
-    }
-
    
 }
 

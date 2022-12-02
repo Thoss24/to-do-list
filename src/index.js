@@ -12,21 +12,25 @@ projectNameButton.addEventListener('click', () => {
     const userInputTitle = projectName.value
 
     const newProject = new Projects(userInputTitle)
-    newProject.checkName()
+    newProject.checkName();
 
     allProjects.push(newProject)
     console.log(allProjects)
+
 });
 
-// toDoNameButton.addEventListener('click', () => {
-//     const userInputToDoName = toDoName.value;
-
-//     const newToDo = new toDo(userInputToDoName);
-//     newToDo.sendToProjectArray()
-// })
 
 
-// Now store to-dos in each project
+toDoNameButton.addEventListener('click', () => {
+    const userInputToDoName = toDoName.value;
+
+    const newToDo = new toDo(userInputToDoName);
+    
+    
+})
+
+
+// how can we access the array inside the Projects class from the toDo class?
 
 
 

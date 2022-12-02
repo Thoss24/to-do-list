@@ -6,19 +6,10 @@ class Projects {
         this.toDoArray = [];
     }
 
-    saveItem(item) {
-        this.toDoArray.push(item);
-    }
-
-    
-
-
     checkName() {
         console.log(this.title)
         console.log(this.toDoArray)
     }
-
-
 
 }
 
