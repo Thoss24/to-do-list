@@ -1,16 +1,18 @@
 import toDo from "./to-do";
 
-class Projects {
+export default class Projects {
     constructor(title) {
         this.title = title;
         this.toDoArray = [];
     }
 
-    checkName() {
-        console.log(this.title)
-        console.log(this.toDoArray)
+    setProjectTitle(title) {
+        this.title = title
+    }
+
+    getProjectTitle() {
+        return this.title
     }
 
 }
 
-export default Projects

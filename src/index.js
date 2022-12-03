@@ -6,16 +6,13 @@ const projectNameButton = document.getElementById('project-name-button');
 const toDoName = document.getElementById('to-do-name');
 const toDoNameButton = document.getElementById('to-do-name-button');
 
-const allProjects = []
+
 
 projectNameButton.addEventListener('click', () => {
     const userInputTitle = projectName.value
 
     const newProject = new Projects(userInputTitle)
     newProject.checkName();
-
-    allProjects.push(newProject)
-    console.log(allProjects)
 
 });
 
@@ -26,8 +23,7 @@ toDoNameButton.addEventListener('click', () => {
 
     const newToDo = new toDo(userInputToDoName);
     
-    
-})
+});
 
 
 // how can we access the array inside the Projects class from the toDo class?

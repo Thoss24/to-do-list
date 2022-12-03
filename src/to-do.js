@@ -1,14 +1,14 @@
-import Projects from "./project";
-
-class toDo {
-    constructor(title, description, date, priority) {
+export default class toDo {
+    constructor(title, date) {
         this.title = title;
-        this.description = description;
         this.date = date;
-        this.priority = priority;
     }
 
-   
-}
+    setToDoTitle(title) {
+        this.title = title
+    }
 
-export default toDo
+    getToDoTitle() {
+        return this.title
+    }
+}
