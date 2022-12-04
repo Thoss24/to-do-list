@@ -1,10 +1,9 @@
 import Projects from "./project";
 import toDo from "./to-do";
 
-class ToDoList {
+export default class ToDoList {
     constructor() {
         this.projectsArray = [];
-        this.projectsArray.push(new Projects("test"))
     }
 
     setProjectsArray(projectsArray) {
@@ -17,6 +16,12 @@ class ToDoList {
 
     getProjectFromArray(projectTitle) {
         return this.projectsArray.find((project) => project.getProjectTitle() === projectTitle) 
+    }
+
+    addProjectToArray(newProject) {
+        if (this.projectsArray.some((project) => project.name === newProject.name))
+        return
+        this.projectsArray.push(newProject)
     }
 
 
