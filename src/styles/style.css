@@ -11,12 +11,33 @@ body {
     min-height: 100vh;
 }
 
-header {
-    font-size: 1.5rem;
+#project-todo-container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
 }
 
-header, 
-form {
+.add-project-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.add-todo-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.project-form, .todo-form {
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    font-size: 1.5rem;
     min-height: 20vh;
     display: flex;
     justify-content: center;
