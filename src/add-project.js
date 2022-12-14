@@ -7,8 +7,9 @@ const projectList = document.querySelector('project-list');
 projectButton.addEventListener('click', addProject);
 
 // Functions
-function addProject(e) {
-    e.preventDefault();
-    // This Project's Todo's
-    const projectToDos = [];
+function createProject() {
+    const projectsToDos = [];
+    // Create project icon
+    const projectUi = document.createElement('div')
+    projectUi.classList.add('project-ui')
 }
