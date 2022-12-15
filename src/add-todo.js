@@ -8,6 +8,7 @@ toDoButton.addEventListener('click', addTodo)
 
 //Functions
 function addTodo(event) {
+    // Prevent page refresh
     event.preventDefault();
     // ToDo DIV
     const todoDiv = document.createElement('div');
