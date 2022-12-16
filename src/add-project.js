@@ -23,10 +23,10 @@ function createProject(event) {
      // Trash button
      const trashButton = document.createElement('button');
      trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-     trashButton.classList.add('complete-btn');
-     todoDiv.appendChild(trashButton);
+     trashButton.classList.add('trash-btn');
+     projectDiv.appendChild(trashButton);
      // Append to list
-     projectList.appendChild(todoDiv);
+     projectList.appendChild(projectDiv);
 }
 
 export {createProject, projectButton}

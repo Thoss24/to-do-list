@@ -68,3 +68,18 @@ form button:hover {
     justify-content: center;
     margin: 8px;
 }
+
+/* project styling */
+
+.project-div {
+    display: flex;
+    background-color: red;
+}
+
+.new-project {
+
+}
+
+.trash-btn {
+
+}
