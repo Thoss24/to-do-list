@@ -7,9 +7,22 @@ const toDoList = document.querySelector('.todo-list');
 toDoButton.addEventListener('click', addTodo)
 
 //Functions
+function createToDo(title, description, dueDate, priority ) {
+    return {
+        title: title,
+        description: description,
+        dueDate: dueDate,
+        priority: priority,
+        displayToDoInfo() {
+            console.log(this.title + this.description + this.dueDate + this.priority)
+        }
+    }
+}
+
+
 function addTodo(event) {
     // Prevent page refresh
-    event.preventDefault();
+    // event.preventDefault();
     // ToDo DIV
     const todoDiv = document.createElement('div');
     todoDiv.classList.add("todo");
@@ -33,4 +46,4 @@ function addTodo(event) {
 };
 
  
-export {addTodo};
+export {addTodo, createToDo};
