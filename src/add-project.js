@@ -4,14 +4,23 @@ const projectButton = document.querySelector('.project-button');
 const projectList = document.querySelector('.project-list');
 
 // Event listeners
-projectButton.addEventListener('click', createProject);
+projectButton.addEventListener('click', createProjectUi);
 
 // Functions
-function createProject(event) {
+function createProject(projectName) {
+    return {
+        projectName: projectName,
+        projectTasks: [],
+        displayTasks() {
+            console.log(this.projectTasks)
+        },
+    };
+}
+
+
+function createProjectUi(event) {
     // prevent page refresh
     event.preventDefault();
-    // Array to store project to-dos
-    const projectsToDos = [];
     // Create project icon
     const projectDiv = document.createElement('div');
     projectDiv.classList.add('project-div');
@@ -29,5 +38,5 @@ function createProject(event) {
      projectList.appendChild(projectDiv);
 }
 
-export {createProject, projectButton}
+export {createProjectUi, createProject}
 
