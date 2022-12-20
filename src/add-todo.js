@@ -22,7 +22,7 @@ function createToDo(title, description, dueDate, priority ) {
 
 function addTodo(event) {
     // Prevent page refresh
-    // event.preventDefault();
+    event.preventDefault();
     // ToDo DIV
     const todoDiv = document.createElement('div');
     todoDiv.classList.add("todo");

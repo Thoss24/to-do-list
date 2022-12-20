@@ -21,7 +21,7 @@ function createProject(projectName) {
 
 function createProjectUi(event) {
     // prevent page refresh
-    // event.preventDefault();
+    event.preventDefault();
     // Create project icon
     const projectDiv = document.createElement('div');
     projectDiv.classList.add('project-div');
