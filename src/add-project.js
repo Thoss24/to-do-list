@@ -19,25 +19,25 @@ function createProject(projectName) {
 }
 
 
-function createProjectUi(event) {
-    // prevent page refresh
-    event.preventDefault();
-    // Create project icon
-    const projectDiv = document.createElement('div');
-    projectDiv.classList.add('project-div');
-    // New Project
-    const newProject = document.createElement('li');
-    newProject.innerText = "test project";
-    newProject.classList.add('new-project');
-    projectDiv.appendChild(newProject);
-     // Trash button
-     const trashButton = document.createElement('button');
-     trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-     trashButton.classList.add('trash-btn');
-     projectDiv.appendChild(trashButton);
-     // Append to list
-     projectList.appendChild(projectDiv);
-}
+// function createProjectUi(event) {
+//     // prevent page refresh
+//     event.preventDefault();
+//     // Create project icon
+//     const projectDiv = document.createElement('div');
+//     projectDiv.classList.add('project-div');
+//     // New Project
+//     const newProject = document.createElement('li');
+//     newProject.innerText = "test project";
+//     newProject.classList.add('new-project');
+//     projectDiv.appendChild(newProject);
+//      // Trash button
+//      const trashButton = document.createElement('button');
+//      trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+//      trashButton.classList.add('trash-btn');
+//      projectDiv.appendChild(trashButton);
+//      // Append to list
+//      projectList.appendChild(projectDiv);
+// }
 
-export {createProjectUi, createProject}
+//export {createProjectUi, createProject}
 

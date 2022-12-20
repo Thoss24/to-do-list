@@ -2,7 +2,7 @@ import { addTodo, createToDo } from "./add-todo";
 import { createProject, createProjectUi } from "./add-project";
 
 addTodo();
-createProjectUi()
+// createProjectUi()
 
 let testProject = createProject("test")
 testProject.displayTasks()
