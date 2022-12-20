@@ -4,7 +4,7 @@ const projectButton = document.querySelector('.project-button');
 const projectList = document.querySelector('.project-list');
 
 // Event listeners
-projectButton.addEventListener('click', createProjectUi);
+projectButton.addEventListener('click', createProject);
 
 // Functions
 function createProject(projectName) {
@@ -39,5 +39,5 @@ function createProject(projectName) {
 //      projectList.appendChild(projectDiv);
 // }
 
-//export {createProjectUi, createProject}
+export {createProject}
 

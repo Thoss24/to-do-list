@@ -4,7 +4,7 @@ const toDoButton = document.querySelector('.todo-button');
 const toDoList = document.querySelector('.todo-list');
 
 //Event listeners
-toDoButton.addEventListener('click', addTodo)
+toDoButton.addEventListener('click', addTodo, false);
 
 //Functions
 function createToDo(title, description, dueDate, priority ) {
@@ -19,31 +19,31 @@ function createToDo(title, description, dueDate, priority ) {
     }
 }
 
+function addTodo(e) {
+   // ToDo DIV
+   const todoDiv = document.createElement('div');
+   todoDiv.classList.add("todo");
+   // Create LI
+   const newTodo = document.createElement('li');
+   newTodo.innerText = 'hey';
+   newTodo.classList.add('todo-item');
+   todoDiv.appendChild(newTodo);
+   // Checked button
+   const completedButton = document.createElement('button');
+   completedButton.innerHTML = '<i class="fas fa-check"></i>';
+   completedButton.classList.add('complete-btn');
+   todoDiv.appendChild(completedButton);
+   // Trash button
+   const trashButton = document.createElement('button');
+   trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+   trashButton.classList.add('complete-btn');
+   todoDiv.appendChild(trashButton);
+   // Append to list
+   toDoList.appendChild(todoDiv);
+   // Prevent page refresh
+   e.preventDefault();
 
-function addTodo(event) {
-    // Prevent page refresh
-    event.preventDefault();
-    // ToDo DIV
-    const todoDiv = document.createElement('div');
-    todoDiv.classList.add("todo");
-    // Create LI
-    const newTodo = document.createElement('li');
-    newTodo.innerText = 'hey';
-    newTodo.classList.add('todo-item');
-    todoDiv.appendChild(newTodo);
-    // Checked button
-    const completedButton = document.createElement('button');
-    completedButton.innerHTML = '<i class="fas fa-check"></i>';
-    completedButton.classList.add('complete-btn');
-    todoDiv.appendChild(completedButton);
-    // Trash button
-    const trashButton = document.createElement('button');
-    trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-    trashButton.classList.add('complete-btn');
-    todoDiv.appendChild(trashButton);
-    // Append to list
-    toDoList.appendChild(todoDiv);
-};
+} 
 
  
 export {addTodo, createToDo};
