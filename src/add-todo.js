@@ -4,7 +4,7 @@ const toDoButton = document.querySelector('.todo-button');
 const toDoList = document.querySelector('.todo-list');
 
 //Event listeners
-toDoButton.addEventListener('click', addTodo, false);
+toDoButton.addEventListener('click', addTodo);
 
 //Functions
 function createToDo(title, description, dueDate, priority ) {
@@ -16,7 +16,8 @@ function createToDo(title, description, dueDate, priority ) {
         displayToDoInfo() {
             console.log(this.title + this.description + this.dueDate + this.priority)
         }
-    }
+    };
+
 }
 
 function addTodo(e) {
@@ -41,7 +42,7 @@ function addTodo(e) {
    // Append to list
    toDoList.appendChild(todoDiv);
    // Prevent page refresh
-   e.preventDefault();
+//    e.preventDefault();
 
 } 
 

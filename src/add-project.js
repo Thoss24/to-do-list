@@ -3,21 +3,31 @@ const projectInput = document.querySelector('.project-input');
 const projectButton = document.querySelector('.project-button');
 const projectList = document.querySelector('.project-list');
 
+// Projects container
+let myProjects = [];
+
 // Event listeners
-projectButton.addEventListener('click', createProject);
+projectButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    myProjects.push(new CreateProject());
+});
+
+projectButton.addEventListener('click', test);
 
 // Functions
-function createProject(projectName) {
-    return {
-        projectName: projectName,
-        projectTasks: [],
-        displayTasks() {
-            console.log(this.projectTasks)
-            console.log(this.projectName)
-        },
-    };
+let CreateProject = function() {
+   this.projectName = projectInput.value;
+   this.tasks = [];
 }
 
+function test(lst) {
+//    for (let i in lst) {
+//     console.log(i)
+//    }
+
+console.log(lst)
+}
+test(myProjects)
 
 // function createProjectUi(event) {
 //     // prevent page refresh
@@ -39,5 +49,5 @@ function createProject(projectName) {
 //      projectList.appendChild(projectDiv);
 // }
 
-export {createProject}
+export {CreateProject, test}
 
