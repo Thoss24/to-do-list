@@ -12,7 +12,11 @@ projectButton.addEventListener('click', (event) => {
     myProjects.push(new CreateProject());
 });
 
-projectButton.addEventListener('click', test);
+projectButton.addEventListener('click', () => {
+    for (let i in myProjects) {
+        console.log(myProjects[i])
+    }
+});
 
 // Functions
 let CreateProject = function() {
@@ -20,14 +24,14 @@ let CreateProject = function() {
    this.tasks = [];
 }
 
-function test(lst) {
+// function test(lst) {
 //    for (let i in lst) {
 //     console.log(i)
 //    }
 
-console.log(lst)
-}
-test(myProjects)
+// console.log(lst)
+// }
+// test(myProjects)
 
 // function createProjectUi(event) {
 //     // prevent page refresh
@@ -49,5 +53,5 @@ test(myProjects)
 //      projectList.appendChild(projectDiv);
 // }
 
-export {CreateProject, test}
+export {CreateProject}
 

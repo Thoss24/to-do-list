@@ -1,9 +1,9 @@
 import { addTodo, createToDo } from "./add-todo";
-import {CreateProject, test} from "./add-project";
+import {CreateProject} from "./add-project";
 
 addTodo();
 
-test()
+
 
 // let testProject = createProject()
 // testProject.displayTasks()
