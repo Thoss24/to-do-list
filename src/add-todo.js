@@ -1,3 +1,5 @@
+import { CreateProject } from "./add-project";
+
 //Selectors
 const toDoInput = document.querySelector('.todo-input');
 const toDoButton = document.querySelector('.todo-button');
@@ -9,10 +11,11 @@ toDoButton.addEventListener('click', addTodo);
 //Functions
 toDoButton.addEventListener('click', (event) => {
     event.preventDefault();
-    myProjects.push(new CreateProject());
-}); // FIGURE OUT HOW TO PUSH TASKS TO PROJECT ARRAY
+    
+    
+}); // FIGURE OUT HOW TO PUSH TASKS TO PROJECT ARRAY. MAYBE IDENTIFY PROJECT BY OBJECT ID AND ASSIGN THAT WAY
 
-let CreateTodo = function() {
+let CreateTodo = function(title, description, dueDate, priority) {
     this.title = toDoInput.value;
     this.description = description;
     this.dueDate = dueDate;
@@ -46,4 +49,4 @@ function addTodo(e) {
 } 
 
  
-export {addTodo, createToDo};
+export {addTodo, CreateTodo};
