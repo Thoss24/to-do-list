@@ -7,18 +7,17 @@ const toDoList = document.querySelector('.todo-list');
 toDoButton.addEventListener('click', addTodo);
 
 //Functions
-function createToDo(title, description, dueDate, priority ) {
-    return {
-        title: title,
-        description: description,
-        dueDate: dueDate,
-        priority: priority,
-        displayToDoInfo() {
-            console.log(this.title + this.description + this.dueDate + this.priority)
-        }
-    };
+toDoButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    myProjects.push(new CreateProject());
+}); // FIGURE OUT HOW TO PUSH TASKS TO PROJECT ARRAY
 
-}
+let CreateTodo = function() {
+    this.title = toDoInput.value;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority
+ }
 
 function addTodo(e) {
    // ToDo DIV
