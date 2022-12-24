@@ -1,7 +1,8 @@
 import { addTodo, createToDo } from "./add-todo";
-import {CreateProject} from "./add-project";
+import {CreateProject, createProjectUi} from "./add-project";
 
 addTodo();
+createProjectUi()
 
 
 
