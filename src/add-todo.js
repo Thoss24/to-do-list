@@ -12,7 +12,6 @@ toDoButton.addEventListener('click', addTodo);
 toDoButton.addEventListener('click', (event) => {
     event.preventDefault();
     
-    
 }); // FIGURE OUT HOW TO PUSH TASKS TO PROJECT ARRAY. MAYBE IDENTIFY PROJECT BY OBJECT ID AND ASSIGN THAT WAY
 
 let CreateTodo = function(title, description, dueDate, priority) {

@@ -26,6 +26,8 @@ let CreateProject = function() {
    this.tasks = [];
 }
 
+// WE NEED TO BE ABLE TO CLICK ON EACH PROJECT UI ON THE PAGE TO SWITCH BETWEEN EACH PROJECTS ARRAY OF TO-DOS. NEXT TASK IS TO DO THAT. WE ALSO NEE TO DISPLAY THE ARRAY OF EACH PROJECT ON THE PAGE.
+
 // function test(lst) {
 //    for (let i in lst) {
 //     console.log(i)
@@ -43,7 +45,7 @@ function createProjectUi(event) {
     projectDiv.classList.add('project-div');
     // New Project
     const newProject = document.createElement('li');
-    newProject.innerText = "test project";
+    newProject.innerText = projectInput.value;
     newProject.classList.add('new-project');
     projectDiv.appendChild(newProject);
      // Trash button
