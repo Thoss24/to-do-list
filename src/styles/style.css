@@ -83,11 +83,13 @@ form button:hover {
 
 .project-div {
     display: flex;
-   
+    gap: 8px;
 }
 
 .new-project {
-
+    font-size: 22px;
+    color: black;
+    cursor: pointer;
 }
 
 .trash-btn {
