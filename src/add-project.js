@@ -1,7 +1,10 @@
+import { CreateTodo } from "./add-todo";
+
 // Selectors
 const projectInput = document.querySelector('.project-input');
 const projectButton = document.querySelector('.project-button');
 const projectList = document.querySelector('.project-list');
+const toDoList = document.querySelector('.todo-list');
 
 // Functions
 let CreateProject = function() {
@@ -21,6 +24,11 @@ let CreateProject = function() {
     // document.querySelector('.new-project').innerHTML = newProject.projectName
     projectDiv.append(newProject.projectName, newProject.tasks);
 
+    // New tasks
+    const newTask = new CreateTodo();
+    newProject.tasks.push(newTask)
+    toDoList.append(newTask.title)
+
     // Trash button
     const trashButton = document.createElement('button');
     trashButton.innerHTML = '<i class="fas fa-trash"></i>';
@@ -34,7 +42,7 @@ let CreateProject = function() {
 // Projects container
 let myProjects = [];
  
- // display the projects tasks as text
+ // work around error in the console. we are on the right track though
  
 
 //  function createProjectUi(event) {
