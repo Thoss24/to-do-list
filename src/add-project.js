@@ -24,11 +24,6 @@ let CreateProject = function() {
     // document.querySelector('.new-project').innerHTML = newProject.projectName
     projectDiv.append(newProject.projectName, newProject.tasks);
 
-    // New tasks
-    const newTask = new CreateTodo();
-    newProject.tasks.push(newTask)
-    toDoList.append(newTask.title)
-
     // Trash button
     const trashButton = document.createElement('button');
     trashButton.innerHTML = '<i class="fas fa-trash"></i>';
