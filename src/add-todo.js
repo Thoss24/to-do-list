@@ -43,8 +43,6 @@ function addTodo(e) {
    todoDiv.appendChild(trashButton);
    // Append to list
    toDoList.appendChild(todoDiv);
-   // Prevent page refresh
-//    e.preventDefault();
 
 } 
 

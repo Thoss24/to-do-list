@@ -82,10 +82,10 @@ projectButton.addEventListener('click', () => {
 // object is appending to screen, but we still need to figure out how to interact with it
 
 // Selectors
-const projectUi = document.querySelector('.new-project');
+// const projectUi = document.querySelector('.new-project');
 
-projectUi.addEventListener('click', () => {
-    console.log("hello")
-});
+// projectUi.addEventListener('click', () => {
+//     console.log("hello")
+// });
 
 export {CreateProject, createProjectUI}
