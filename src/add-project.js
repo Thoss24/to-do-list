@@ -22,7 +22,10 @@ let CreateProject = function() {
     myProjects.push(newProject);
     // newProject.classList.add('new-project');
     // document.querySelector('.new-project').innerHTML = newProject.projectName
-    projectDiv.append(newProject.projectName, newProject.tasks);
+    const projectUiButton = document.createElement('button');
+    projectUiButton.classList.add('projectUiButton')
+    projectUiButton.append(newProject.projectName, newProject.tasks)
+    projectDiv.appendChild(projectUiButton);
 
     // Trash button
     const trashButton = document.createElement('button');

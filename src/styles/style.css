@@ -81,6 +81,11 @@ form button:hover {
     display: flex;
 }
 
+.projectUiButton {
+    display: flex;
+    
+}
+
 .project-div {
     display: flex;
     gap: 8px;
