@@ -82,9 +82,17 @@ form button:hover {
 }
 
 .projectUiButton {
-    display: flex;
-    
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
 }
+
+.active, .projectUiButton:hover {
+    background-color: #666;
+    color: white;
+  }
 
 .project-div {
     display: flex;
