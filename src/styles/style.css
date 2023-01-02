@@ -81,12 +81,13 @@ form button:hover {
     display: flex;
 }
 
-.projectUiButton {
+.project-ui-button {
     border: none;
     outline: none;
     padding: 10px 16px;
     background-color: #f1f1f1;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .active, .projectUiButton:hover {

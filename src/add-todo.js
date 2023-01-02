@@ -1,10 +1,9 @@
-import {CreateProject, myProjects } from "./add-project";
+import {CreateProject, myProjects} from "./add-project";
 
 //Selectors
 const toDoInput = document.querySelector('.todo-input');
 const toDoButton = document.querySelector('.todo-button');
 const toDoList = document.querySelector('.todo-list');
-const projectUiButton = document.querySelector('.projectUiButton')
 
 //Event listeners
 toDoButton.addEventListener('click', addTodo);
@@ -19,6 +18,7 @@ let CreateTodo = function(title) {
 }
 
 function addTodo(e) {
+    const projectUiButton = document.querySelector('.project-ui-button.active')
    // ToDo DIV
    const todoDiv = document.createElement('div');
    todoDiv.classList.add("todo");
@@ -28,10 +28,13 @@ function addTodo(e) {
    todoDiv.append(newTodo.title);
 
    for (let i = 0; i < myProjects.length; i++) {
-       console.log(myProjects[i].tasks)
-        // WE HAVE OUR CONDITION TO PUSH TASKS
-        // If projectUiButton is "active" and text content is equal to myProjects[i].projectName push newToDo to myProjects[i].tasks
-   }
+        if (projectUiButton.textContent == myProjects[i].projectName) {
+            myProjects[i].tasks.push(newTodo)
+        };
+        console.log(myProjects[i].tasks)
+        //is "active" and text content is equal to myProjects[i].projectName push newToDo to myProjects[i].tasks
+   };
+
 
    // Checked button
    const completedButton = document.createElement('button');

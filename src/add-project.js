@@ -20,9 +20,9 @@ let CreateProject = function() {
     myProjects.push(newProject);
 
     const projectUiButton = document.createElement('button');
-    projectUiButton.classList.add('projectUiButton');
+    projectUiButton.classList.add('project-ui-button');
 
-    const btn = projectList.getElementsByClassName("projectUiButton");
+    const btn = projectList.getElementsByClassName("project-ui-button");
 
     // Loop through the buttons and add the active class to the current/clicked button
     for (let i = 0; i < btn.length; i++) {
@@ -40,7 +40,7 @@ let CreateProject = function() {
     });
     }
 
-    projectUiButton.append(newProject.projectName, newProject.tasks)
+    projectUiButton.append(newProject.projectName)
     projectList.appendChild(projectUiButton);
 
    
@@ -48,7 +48,7 @@ let CreateProject = function() {
     const trashButton = document.createElement('button');
     trashButton.innerHTML = '<i class="fas fa-trash"></i>';
     trashButton.classList.add('trash-btn');
-
+    
  }
 
 // Projects container
