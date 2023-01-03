@@ -23,6 +23,9 @@ let CreateProject = function() {
     projectUiButton.classList.add('project-ui-button');
 
     const btn = projectList.getElementsByClassName("project-ui-button");
+    projectUiButton.addEventListener('click', () => {
+        console.log(newProject.tasks)
+       });
 
     // Loop through the buttons and add the active class to the current/clicked button
     for (let i = 0; i < btn.length; i++) {
@@ -51,6 +54,7 @@ let CreateProject = function() {
     
  }
 
+
 // Projects container
 let myProjects = [];
 
@@ -62,11 +66,6 @@ projectButton.addEventListener('click', (e) => {
     e.preventDefault()
 });
 
-// projectButton.addEventListener('click', () => {
-//     for (let i in myProjects) {
-//         console.log(myProjects[i])
-//     }
-// });
 
 
 export {CreateProject, createProjectUI, myProjects}

@@ -10,15 +10,15 @@ toDoButton.addEventListener('click', addTodo);
 
 toDoButton.addEventListener('click', (event) => {
     event.preventDefault();
-
 }); 
 
+// Functions
 let CreateTodo = function(title) {
     this.title = toDoInput.value
 }
 
 function addTodo(e) {
-    const projectUiButton = document.querySelector('.project-ui-button.active')
+    const projectUiButton = document.querySelector('.project-ui-button.active');
    // ToDo DIV
    const todoDiv = document.createElement('div');
    todoDiv.classList.add("todo");
@@ -28,13 +28,12 @@ function addTodo(e) {
    todoDiv.append(newTodo.title);
 
    for (let i = 0; i < myProjects.length; i++) {
-        if (projectUiButton.textContent == myProjects[i].projectName) {
+        if (projectUiButton.textContent == myProjects[i].projectName) { // add condition so that 2 projects cannot have the same name
             myProjects[i].tasks.push(newTodo)
         };
         console.log(myProjects[i].tasks)
         //is "active" and text content is equal to myProjects[i].projectName push newToDo to myProjects[i].tasks
    };
-
 
    // Checked button
    const completedButton = document.createElement('button');
