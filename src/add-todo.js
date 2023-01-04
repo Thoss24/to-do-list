@@ -36,16 +36,16 @@ function addTodo(e) {
    };
 
    // Checked button
-   const completedButton = document.createElement('button');
-   completedButton.innerHTML = '<i class="fas fa-check"></i>';
-   completedButton.classList.add('complete-btn');
-   todoDiv.appendChild(completedButton);
+//    const completedButton = document.createElement('button');
+//    completedButton.innerHTML = '<i class="fas fa-check"></i>';
+//    completedButton.classList.add('complete-btn');
+//    todoDiv.appendChild(completedButton);
 
    // Trash button
-   const trashButton = document.createElement('button');
-   trashButton.innerHTML = '<i class="fas fa-trash"></i>';
-   trashButton.classList.add('complete-btn');
-   todoDiv.appendChild(trashButton);
+//    const trashButton = document.createElement('button');
+//    trashButton.innerHTML = '<i class="fas fa-trash"></i>';
+//    trashButton.classList.add('complete-btn');
+//    todoDiv.appendChild(trashButton);
 
    // Append to list
    toDoList.appendChild(todoDiv);

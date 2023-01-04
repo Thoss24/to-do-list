@@ -10,7 +10,7 @@ const toDoList = document.querySelector('.todo-list');
 // Functions
 let CreateProject = function() {
     this.projectName = projectInput.value;
-    this.tasks = ["dummy data"];
+    this.tasks = [];
  }
 
  function createProjectUI() {
@@ -24,7 +24,7 @@ let CreateProject = function() {
 
     const btn = projectList.getElementsByClassName("project-ui-button");
     projectUiButton.addEventListener('click', () => {
-        console.log(newProject.tasks)
+        toDoContainer.innerHTML = newProject.tasks
        });
 
     // Loop through the buttons and add the active class to the current/clicked button
