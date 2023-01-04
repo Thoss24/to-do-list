@@ -29,7 +29,7 @@ function addTodo(e) {
 
    for (let i = 0; i < myProjects.length; i++) {
         if (projectUiButton.textContent == myProjects[i].projectName) { // add condition so that 2 projects cannot have the same name
-            myProjects[i].tasks.push(newTodo)
+            myProjects[i].tasks.push(newTodo.title)
         };
         console.log(myProjects[i].tasks)
         //is "active" and text content is equal to myProjects[i].projectName push newToDo to myProjects[i].tasks
