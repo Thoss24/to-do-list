@@ -75,6 +75,13 @@ form button:hover {
     margin: 8px;
 }
 
+.todo-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 30px;
+    color: black;
+}
+
 /* project styling */
 
 #project-todo-container {
