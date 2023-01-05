@@ -27,8 +27,8 @@ body {
 
 #project-todo-container {
     display: flex;
-    flex-direction: column;
-    gap: 40px;
+    background-color: #666;
+    padding: 20px;
 }
 
 .add-project-container {
@@ -40,7 +40,8 @@ body {
 .add-todo-container {
     display: flex;
     flex-direction: column;
-    padding: 10px;
+    background-color: #666;
+    padding: 20px;
 }
 
 .project-form, .todo-form {
@@ -102,14 +103,14 @@ form button:hover {
     border: none;
     outline: none;
     padding: 10px 16px;
-    background-color: #f1f1f1;
+    background-color: #fcfdfd;
     cursor: pointer;
     font-size: 20px;
     width: 60%;
 }
 
 .active, .projectUiButton:hover {
-    background-color: #666;
+    background-color: rgb(177, 172, 172);
     color: white;
   }
 
