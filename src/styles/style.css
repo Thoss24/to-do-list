@@ -95,6 +95,7 @@ form button:hover {
     background-color: #f1f1f1;
     cursor: pointer;
     font-size: 20px;
+    width: 60%;
 }
 
 .active, .projectUiButton:hover {
@@ -111,6 +112,14 @@ form button:hover {
     font-size: 22px;
     color: black;
     cursor: pointer;
+}
+
+.project-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
 }
 
 .trash-btn {
