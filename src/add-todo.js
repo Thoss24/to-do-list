@@ -4,6 +4,7 @@ import {CreateProject, myProjects} from "./add-project";
 const toDoInput = document.querySelector('.todo-input');
 const toDoButton = document.querySelector('.todo-button');
 const toDoList = document.querySelector('.todo-list');
+const todoDateInput = document.getElementById('to-do-date');
 
 //Event listeners
 toDoButton.addEventListener('click', addTodo);
@@ -15,7 +16,7 @@ toDoButton.addEventListener('click', (event) => {
 // Functions
 let CreateTodo = function(title, date) {
     this.title = toDoInput.value
-    this.date = 
+    this.date = todoDateInput.value
 }
 
 function addTodo(e) {
@@ -30,7 +31,7 @@ function addTodo(e) {
 
    for (let i = 0; i < myProjects.length; i++) {
         if (projectUiButton.textContent == myProjects[i].projectName) { // add condition so that 2 projects cannot have the same name
-            myProjects[i].tasks.push(newTodo.title)
+            myProjects[i].tasks.push(newTodo)
         };
         console.log(myProjects[i].tasks)
         //is "active" and text content is equal to myProjects[i].projectName push newToDo to myProjects[i].tasks
