@@ -13,8 +13,9 @@ toDoButton.addEventListener('click', (event) => {
 }); 
 
 // Functions
-let CreateTodo = function(title) {
+let CreateTodo = function(title, date) {
     this.title = toDoInput.value
+    this.date = 
 }
 
 function addTodo(e) {
