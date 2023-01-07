@@ -25,7 +25,7 @@ let CreateProject = function() {
 
     const btn = projectList.getElementsByClassName("project-ui-button");
     projectUiButton.addEventListener('click', () => {
-        toDoContainer.innerHTML = newProject.tasks
+        toDoContainer.textContent = newProject.tasks
         projectTodoTitle.textContent = newProject.projectName;
        });
 
