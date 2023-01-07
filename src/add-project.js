@@ -26,7 +26,7 @@ let CreateProject = function() {
     const btn = projectList.getElementsByClassName("project-ui-button");
     projectUiButton.addEventListener('click', () => {
         toDoContainer.innerHTML = newProject.tasks
-        projectTodoTitle.textContent = newProject.projectName
+        projectTodoTitle.textContent = newProject.projectName;
        });
 
     // Loop through the buttons and add the active class to the current/clicked button

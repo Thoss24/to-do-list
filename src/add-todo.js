@@ -5,6 +5,7 @@ const toDoInput = document.querySelector('.todo-input');
 const toDoButton = document.querySelector('.todo-button');
 const toDoList = document.querySelector('.todo-list');
 const todoDateInput = document.getElementById('to-do-date');
+const toDoContainer = document.querySelector('.todo-container');
 
 //Event listeners
 toDoButton.addEventListener('click', addTodo);
@@ -21,17 +22,19 @@ let CreateTodo = function(title, date) {
 
 function addTodo(e) {
     const projectUiButton = document.querySelector('.project-ui-button.active');
-   // ToDo DIV
-   const todoDiv = document.createElement('div');
-   todoDiv.classList.add("todo");
+    // ToDo DIV
+//    const todoDiv = document.createElement('div');
+//    todoDiv.classList.add("todo");
 
    // New Todo
    const newTodo = new CreateTodo();
-   todoDiv.append(newTodo.title);
+//    todoDiv.append(newTodo.title);
 
    for (let i = 0; i < myProjects.length; i++) {
         if (projectUiButton.textContent == myProjects[i].projectName) { // add condition so that 2 projects cannot have the same name
-            myProjects[i].tasks.push(newTodo)
+            const newTodoValues = [newTodo.title, newTodo.date];
+            myProjects[i].tasks.push(newTodoValues);
+            toDoContainer.innerHTML = myProjects[i].tasks
         };
         console.log(myProjects[i].tasks)
         //is "active" and text content is equal to myProjects[i].projectName push newToDo to myProjects[i].tasks
@@ -50,7 +53,8 @@ function addTodo(e) {
 //    todoDiv.appendChild(trashButton);
 
    // Append to list
-   toDoList.appendChild(todoDiv);
+
+//    toDoList.appendChild(todoDiv);
 } 
 
  
