@@ -1,6 +1,9 @@
-let CreateProject = function(projectName) {
-    this.projectName = projectName
-    this.tasks = [];
+class CreateProject {
+    constructor(projectName) {
+        this.projectName = projectName
+        this.tasks = []
+    }
 }
+
 
 export {CreateProject}

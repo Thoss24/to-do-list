@@ -1,7 +1,9 @@
-let CreateTodo = function(title, date, checked) {
-    this.title = title
-    this.date = date
-    this.checked = checked
-}
+class CreateTodo {
+   constructor(title, date) {
+      this.title = title;
+      this.date = date
+      this.completed = false;
+   };
+};
  
 export {CreateTodo};
