@@ -16,10 +16,10 @@ const dom = (() => {
     const projectInput = document.querySelector('.project-input');
     const projectButton = document.querySelector('.project-button');
     const projectList = document.querySelector('.project-list');
-    const projectTodoTitle = document.querySelector('.project-todo-title')
+    const projectTodoTitle = document.querySelector('.project-todo-title');
+    const projectUiButton = document.querySelector('.project-ui-button.active');
 
     function createProjectUI() {
-
         // New Project
         const newProject = new CreateProject(projectInput.value);
         myProjects.push(newProject);
@@ -29,7 +29,7 @@ const dom = (() => {
     
         const btn = projectList.getElementsByClassName("project-ui-button");
         projectUiButton.addEventListener('click', () => {
-            
+            // console.log(newProject.tasks)
             projectTodoTitle.textContent = newProject.projectName;
            });
     
@@ -51,29 +51,58 @@ const dom = (() => {
     
     
     function addTodo(e) {
-    
-       const projectUiButton = document.querySelector('.project-ui-button.active');
-       const newTodo = new CreateTodo(toDoInput.value, todoDateInput.value);
+        const projectUiButton = document.querySelector('.project-ui-button.active');
+        toDoContainer.innerHTML = 
+        `<div class="tasks-list" id="tasks-list"></div>`
 
-    //    (projectUiButton.textContent == myProjects[i].projectName)
+       const newTodo = new CreateTodo(toDoInput.value, todoDateInput.value);
+    //    projectUiButton.classList.contains('active')
     
        for (let i = 0; i < myProjects.length; i++) {
-            if (projectUiButton.classList.contains('active')) { // add condition so that 2 projects cannot have the same name
+            if (projectUiButton.textContent == myProjects[i].projectName) { // add condition so that 2 projects cannot have the same name
                 const newTodoValues = [newTodo.title, newTodo.date, newTodo.completed]
                 myProjects[i].tasks.push(newTodoValues);
-                const todoItems = document.createElement('div');
-                const checked = document.createElement('input');
-                checked.type = "checkbox";
-                todoItems.classList.add('todo-items');
-                const todoTitle = myProjects[i].tasks[0][0];
-                const todoDate = myProjects[i].tasks[0][1];
-                todoItems.append(todoTitle, todoDate);
-                toDoContainer.innerHTML = 
-                    '<div class="todo-items"> <input type="checkbox"> </div>' // inner HTML is the key, continue to test this for solution
-                console.log(myProjects[i].tasks)
+                const tasksList = document.getElementById('tasks-list');
+                tasksList.innerHTML += `
+                <button class="button-task" data-task-button>
+                <div class="left-task-panel">
+                <i class="far fa-circle"></i>
+                <p class="task-content">${newTodo.title}</p>
+                <input type="text" class="input-task-name" data-input-task-name>
+                </div>
+                <div class="right-task-panel">
+                <p class="due-date" id="due-date">${newTodo.date}</p>
+                <input type="date" class="input-due-date" data-input-due-date>
+                <i class="fas fa-times"></i>
+                </div>
+                </button>`
             }
        };
     };
+
+
+   function displayProjectTodo() {
+    const projectUiButton = document.querySelector('.project-ui-button.active');
+    toDoContainer.innerHTML = 
+    `<div class="tasks-list" id="tasks-list"></div>`
+
+    if (projectUiButton.classList.contains('active')) {
+        const tasksList = document.getElementById('tasks-list');
+        tasksList.innerHTML += `
+        <button class="button-task" data-task-button>
+        <div class="left-task-panel">
+          <i class="far fa-circle"></i>
+          <p class="task-content">${myProjects.tasks}</p>
+          <input type="text" class="input-task-name" data-input-task-name>
+        </div>
+        <div class="right-task-panel">
+          <p class="due-date" id="due-date">DATE HERE</p>
+          <input type="date" class="input-due-date" data-input-due-date>
+          <i class="fas fa-times"></i>
+        </div>
+      </button>`
+    }
+   }
 
     //Event listeners
     toDoButton.addEventListener('click', addTodo);
@@ -82,15 +111,20 @@ const dom = (() => {
         event.preventDefault();
     }); 
 
-    projectButton.addEventListener('click', createProjectUI);
+    projectButton.addEventListener('click', createProjectUI)
+
+    // toDoButton.addEventListener('click', displayProjectTodo)
 
     projectButton.addEventListener('click', (e) => {
         e.preventDefault()
     });
 
+    
+
     return {
         createProjectUI,
-        addTodo
+        addTodo, 
+        displayProjectTodo
     };
 
 })();
