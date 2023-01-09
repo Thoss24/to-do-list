@@ -40,11 +40,11 @@ const dom = (() => {
                 <button class="button-task" data-task-button>
                 <div class="left-task-panel">
                 <i class="far fa-circle"></i>
-                <p class="task-content">${element}</p>
+                <p class="task-content">${element.title}</p>
                 <input type="text" class="input-task-name" data-input-task-name>
                 </div>
                 <div class="right-task-panel">
-                <p class="due-date" id="due-date">DATE HERE</p>
+                <p class="due-date" id="due-date">${element.date}</p>
                 <input type="date" class="input-due-date" data-input-due-date>
                 <i class="fas fa-times"></i>
                 </div>
@@ -82,7 +82,7 @@ const dom = (() => {
        for (let i = 0; i < myProjects.length; i++) {
             if (projectUiButton.textContent == myProjects[i].projectName) { // add condition so that 2 projects cannot have the same name
                 const newTodoValues = [newTodo.title, newTodo.date, newTodo.completed]
-                myProjects[i].tasks.push(newTodoValues);
+                myProjects[i].tasks.push(newTodo);
                 console.log(myProjects[i].tasks);
                 myProjects[i].tasks.forEach(element => {
                     const tasksList = document.getElementById('tasks-list');
@@ -90,11 +90,11 @@ const dom = (() => {
                     <button class="button-task" data-task-button>
                     <div class="left-task-panel">
                     <i class="far fa-circle"></i>
-                    <p class="task-content">${element}</p>
+                    <p class="task-content">${element.title}</p>
                     <input type="text" class="input-task-name" data-input-task-name>
                     </div>
                     <div class="right-task-panel">
-                    <p class="due-date" id="due-date">DATE HERE</p>
+                    <p class="due-date" id="due-date">${element.date}</p>
                     <input type="date" class="input-due-date" data-input-due-date>
                     <i class="fas fa-times"></i>
                     </div>
