@@ -40,11 +40,11 @@ const dom = (() => {
                 <button class="button-task" data-task-button>
                 <div class="left-task-panel">
                 <i class="far fa-circle"></i>
-                <p class="task-content">${element.title}</p>
-                <input type="text" class="input-task-name" data-input-task-name>
+                <p class="input-title-text">${element.title}</p>
+                <input type="text" class="input-title" id="input-title">
                 </div>
                 <div class="right-task-panel">
-                <p class="due-date" id="due-date">${element.date}</p>
+                <p class="input-date">${element.date}</p>
                 <input type="date" class="input-due-date" data-input-due-date>
                 <i class="fas fa-times"></i>
                 </div>
@@ -73,8 +73,7 @@ const dom = (() => {
     function addTodo(e) {
         const projectUiButton = document.querySelector('.project-ui-button.active');
 
-       const newTodo = new CreateTodo(toDoInput.value, todoDateInput.value);
-    //    projectUiButton.classList.contains('active') 
+        const newTodo = new CreateTodo(toDoInput.value, todoDateInput.value);
 
         toDoContainer.innerHTML = 
         `<div class="tasks-list" id="tasks-list"></div>`
@@ -90,19 +89,25 @@ const dom = (() => {
                     <button class="button-task" data-task-button>
                     <div class="left-task-panel">
                     <i class="far fa-circle"></i>
-                    <p class="task-content">${element.title}</p>
-                    <input type="text" class="input-task-name" data-input-task-name>
+                    <p class="input-title-text">${element.title}</p>
+                    <input type="text" class="input-title" id="input-title">
                     </div>
                     <div class="right-task-panel">
-                    <p class="due-date" id="due-date">${element.date}</p>
-                    <input type="date" class="input-due-date" data-input-due-date>
+                    <p class="input-date">${element.date}</p>
+                    <input type="date" class="input-due-date" id="input-due-date">
                     <i class="fas fa-times"></i>
                     </div>
                     </button>`
                 });
             };
        };
+        const todoTitleInput = document.querySelectorAll('.input-title');
+        const todoTitle = document.querySelectorAll('.input-title-text');
+        const taskContainer = document.querySelector('.button-task');
+
+       // need to set an active class for each todo button as an identifier enabling us to edit the active button (todo)
     };
+
 
     //Event listeners
     toDoButton.addEventListener('click', addTodo);
@@ -121,7 +126,7 @@ const dom = (() => {
 
     return {
         createProjectUI,
-        addTodo
+        addTodo,
     };
 
 })();
