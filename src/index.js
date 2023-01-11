@@ -28,6 +28,7 @@ const dom = (() => {
         projectUiButton.classList.add('project-ui-button');
     
         const btn = projectList.getElementsByClassName("project-ui-button");
+
         projectUiButton.addEventListener('click', () => {
 
             toDoContainer.innerHTML = 
@@ -41,14 +42,14 @@ const dom = (() => {
                 <div class="left-task-panel">
                 <i class="far fa-circle"></i>
                 <p class="input-title-text">${element.title}</p>
-                <input type="text" class="input-title" id="input-title">
                 </div>
                 <div class="right-task-panel">
                 <p class="input-date">${element.date}</p>
-                <input type="date" class="input-due-date" data-input-due-date>
+                <i class="fa fa-pencil"></i>
                 <i class="fas fa-times"></i>
                 </div>
                 </button>`
+                editTodo()
             });
             projectTodoTitle.textContent = newProject.projectName;
            });
@@ -65,18 +66,20 @@ const dom = (() => {
             this.className += " active";
         });
         };
+
         projectUiButton.append(newProject.projectName)
         projectList.appendChild(projectUiButton);
+        editTodo()
      };
     
     
     function addTodo(e) {
         const projectUiButton = document.querySelector('.project-ui-button.active');
-
         const newTodo = new CreateTodo(toDoInput.value, todoDateInput.value);
 
         toDoContainer.innerHTML = 
         `<div class="tasks-list" id="tasks-list"></div>`
+        const tasksList = document.getElementById('tasks-list');
     
        for (let i = 0; i < myProjects.length; i++) {
             if (projectUiButton.textContent == myProjects[i].projectName) { // add condition so that 2 projects cannot have the same name
@@ -84,30 +87,34 @@ const dom = (() => {
                 myProjects[i].tasks.push(newTodo);
                 console.log(myProjects[i].tasks);
                 myProjects[i].tasks.forEach(element => {
-                    const tasksList = document.getElementById('tasks-list');
                     tasksList.innerHTML += `
                     <button class="button-task" data-task-button>
                     <div class="left-task-panel">
                     <i class="far fa-circle"></i>
                     <p class="input-title-text">${element.title}</p>
-                    <input type="text" class="input-title" id="input-title">
                     </div>
                     <div class="right-task-panel">
                     <p class="input-date">${element.date}</p>
-                    <input type="date" class="input-due-date" id="input-due-date">
+                    <i class="fa fa-pencil"></i>
                     <i class="fas fa-times"></i>
                     </div>
                     </button>`
                 });
             };
-       };
-        const todoTitleInput = document.querySelectorAll('.input-title');
-        const todoTitle = document.querySelectorAll('.input-title-text');
-        const taskContainer = document.querySelector('.button-task');
-
-       // need to set an active class for each todo button as an identifier enabling us to edit the active button (todo)
+       }; 
+       editTodo()
     };
 
+    function editTodo() {
+        const tasksList = document.getElementById('tasks-list');
+        const editTodoBtn = document.getElementsByClassName('fa fa-pencil')
+        for (let i = 0; i < editTodoBtn.length; i++) {
+            editTodoBtn[i].addEventListener('click', () => {
+            console.log("hello")
+        })
+       };
+    };
+    
 
     //Event listeners
     toDoButton.addEventListener('click', addTodo);
@@ -116,17 +123,17 @@ const dom = (() => {
         event.preventDefault();
     }); 
 
-    projectButton.addEventListener('click', createProjectUI)
+    projectButton.addEventListener('click', createProjectUI);
 
     projectButton.addEventListener('click', (e) => {
         e.preventDefault()
     });
 
     
-
     return {
         createProjectUI,
         addTodo,
+        editTodo
     };
 
 })();

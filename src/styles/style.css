@@ -96,18 +96,6 @@ form button:hover {
     gap: 10px;
 }
 
-.input-title {
-    display: none;
-}
-
-.input-title-text {
-    cursor: text;
-}
-
-.input-due-date {
-    display: none;
-}
-
 .left-task-panel > i, p {
     font-size: 20px;
 }
