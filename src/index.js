@@ -83,7 +83,6 @@ const dom = (() => {
     
        for (let i = 0; i < myProjects.length; i++) {
             if (projectUiButton.textContent == myProjects[i].projectName) { // add condition so that 2 projects cannot have the same name
-                const newTodoValues = [newTodo.title, newTodo.date, newTodo.completed]
                 myProjects[i].tasks.push(newTodo);
                 console.log(myProjects[i].tasks);
                 myProjects[i].tasks.forEach(element => {
@@ -106,11 +105,16 @@ const dom = (() => {
     };
 
     function editTodo() {
-        const tasksList = document.getElementById('tasks-list');
+        const editTodoFormContainer = document.getElementById('edit-todo-form-container');
+        const editTodoTitle = document.getElementById('edit-todo-title');
+        const editTodoDate = document.getElementById('edit-todo-date');
+        const closeEditTodoButton = document.getElementById('close-edit-todo-button');
         const editTodoBtn = document.getElementsByClassName('fa fa-pencil')
+
         for (let i = 0; i < editTodoBtn.length; i++) {
             editTodoBtn[i].addEventListener('click', () => {
-            console.log("hello")
+            editTodoFormContainer.style.display = "flex"
+            editTodoTitle // i think we need to copy for loop and foreach loop from addTodo function in order to access each todo title and date so its value can be edited.
         })
        };
     };

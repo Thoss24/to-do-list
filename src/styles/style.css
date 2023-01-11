@@ -104,6 +104,28 @@ form button:hover {
 
 }
 
+/* edit to-do form */
+
+#edit-todo-form-container {
+    display: none;
+}
+
+#edit-todo-form {
+
+}
+
+#edit-todo-title {
+
+}
+
+#edit-todo-date {
+
+}
+
+#close-edit-todo-button {
+    
+}
+
 /* project styling */
 
 .project-ui-button {
