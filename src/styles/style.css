@@ -126,6 +126,11 @@ form button:hover {
     
 }
 
+.edit-button {
+    font-family: sans-serif;
+    font-size: 18px;
+}
+
 /* project styling */
 
 .project-ui-button {
