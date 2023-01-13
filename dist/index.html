@@ -16,18 +16,21 @@
     <div id="container">
         <div id="project-todo-container">
             <h2 class="projects-header">Projects</h2>
-            <div class="add-project-container" id="add-project-container">
+            <div id="add-project-container">
                 <form action="" class="project-form">
-                    <input type="text" class="project-input">
-                    <button class="project-button" type="submit">
+                    <input type="text" id="project-name-input">
+                    <button id="create-project-button">
                         <i class="fas fa-plus-square"></i>
+                    </button>
+                    <button id="cancel-add-project-button">
+                        <i class="fa fa-times-circle"></i>
                     </button>
                 </form>
                 <div class="project-container">
                     <ul class="project-list"></ul>
                 </div>
             </div>
-            <button class="add-projects-button"><i class="fa fa-plus"></i>Add Project</button>
+            <button id="add-projects-button"><i class="fa fa-plus"></i>Add Project</button>
             </div>
 
             <div class="add-todo-container">
@@ -49,16 +52,7 @@
                 <ul class="todo-list"></ul>
             </div> -->
         </div>
-    </div>
-
-    <div id="edit-todo-form-container">
-        <form action="" id="edit-todo-form">
-            <input type="text" id="edit-todo-title">
-            <input type="date" id="edit-todo-date">
-            <button type="submit" id="close-edit-todo-button">Done</button>
-        </form>
     </div>    
-
-    <script src="main.js"></script>    
+    <script src="main.js"></script>   
 </body>
 </html>
