@@ -15,26 +15,23 @@
     </header>
     <div id="container">
         <div id="project-todo-container">
-            <div class="add-project-container">
-                <h2>Add Project</h2>
-                <div class="divider"></div>
+            <h2 class="projects-header">Projects</h2>
+            <div class="add-project-container" id="add-project-container">
                 <form action="" class="project-form">
                     <input type="text" class="project-input">
                     <button class="project-button" type="submit">
                         <i class="fas fa-plus-square"></i>
                     </button>
                 </form>
-                <h2>My Projects</h2>
                 <div class="project-container">
-                    <div class="divider"></div>
                     <ul class="project-list"></ul>
                 </div>
             </div>
+            <button class="add-projects-button"><i class="fa fa-plus"></i>Add Project</button>
             </div>
 
             <div class="add-todo-container">
                 <h2>Add Todo</h2>
-                <div class="divider"></div>
                 <form action="" class="todo-form">
                     <input type="text" class="todo-input">
                     <label for="to-do-date"></label>
@@ -44,7 +41,6 @@
                     </button>
                 </form>
                 <h2 class="project-todo-title"></h2>
-                <div class="divider"></div>
                 <div class="todo-container">
                 </div>
             </div>
@@ -64,7 +60,5 @@
     </div>    
 
     <script src="main.js"></script>    
-     <!-- commented out because main.js not updating. need to fix this. -->
-    <!-- <script src="../src/add-project.js"></script> -->
 </body>
 </html>

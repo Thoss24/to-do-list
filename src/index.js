@@ -1,61 +1,6 @@
-import {todo } from "./add-todo";
-import {projects} from "./add-project";
+import Dom from "./dom";
 
-
-const dom = (() => {
-
-     //Selectors
-    const toDoInput = document.querySelector('.todo-input');
-    const toDoButton = document.querySelector('.todo-button');
-    const toDoList = document.querySelector('.todo-list');
-    const todoDateInput = document.getElementById('to-do-date');
-    const toDoContainer = document.querySelector('.todo-container');
-    const projectInput = document.querySelector('.project-input');
-    const projectButton = document.querySelector('.project-button');
-    const projectList = document.querySelector('.project-list');
-    const projectTodoTitle = document.querySelector('.project-todo-title');
-    const projectUiButton = document.querySelector('.project-ui-button.active');
-    const closeEditTodoButton = document.getElementById('close-edit-todo-button');
-    const editTodoFormContainer = document.getElementById('edit-todo-form-container');
-    const editTodoTitle = document.getElementById('edit-todo-title');
-    const editTodoDate = document.getElementById('edit-todo-date');
-
-    todo()
-
-})();
-
-export {dom}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+document.addEventListener('DOMContentLoaded', Dom.loadPage)
 
 
     // Projects container
