@@ -22,5 +22,7 @@ export default class Dom {
             event.preventDefault()
         })
         
-    }
+    };
+
+    
 }
