@@ -1,7 +1,46 @@
 import Todo from "./add-todo";
 import Projects from "./add-project";
+import List from "./get-projects";
+import LocalStorage from "./local-storage";
 
 export default class Dom {
+
+
+    static createNewProject(projectName) {
+        const userProjectsList = document.getElementById('user-projects-container');
+
+        userProjectsList.innerHTML += `
+        <button class="user-project-button">
+        <div class="project-name-icon"> 
+        <i class="fa fa-th-list"></i>
+        <span>${projectName}</span>
+        </div>
+        <div class="delete-project-icon>
+        <i class="fa fa-times-circle"></i>
+        </div>
+        </button>
+        `
+      
+    };
+
+    static addProject() {
+        const projectNameInput = document.getElementById('project-name-input');
+
+        const projectName = projectNameInput.value
+
+        if (projectName.value === "") {
+            alert("Project name cannot be empty")
+        }
+
+        // if (LocalStorage.retrieveTodoList().contains(projectName)) {
+        //     alert("Project names cannot be the same")
+        //     return
+        // }
+
+       
+        LocalStorage.addProject(new Projects(projectName))
+        Dom.createNewProject(projectName)
+    }
 
     static addProjectUi() {
         const addProjectContainer = document.getElementById('add-project-container');
@@ -14,15 +53,21 @@ export default class Dom {
         });
 
         cancelAddProjectButton.addEventListener('click', (event) => {
-            event.preventDefault()
             addProjectContainer.style.display = "none"
         });
 
-        createProjectButton.addEventListener('click', (event) => {
-            event.preventDefault()
-        })
-        
+        createProjectButton.addEventListener('click', Dom.createNewProject); 
+
+        createProjectButton.addEventListener('click', Dom.addProject); 
+
+        createProjectButton.addEventListener('keypress', Dom.handleKeydownInput)
     };
+
+    static handleKeydownInput(e) {
+        if (e.key === "Enter") {
+            Dom.addProject()
+        }
+    }
 
     
 }

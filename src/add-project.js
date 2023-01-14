@@ -13,7 +13,7 @@ export default class Projects {
     }
 
     setTasks(tasks) {
-        this.tasks =tasks
+        this.tasks = tasks
     }
 
     getTasks() {
