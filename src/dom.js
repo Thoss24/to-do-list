@@ -5,6 +5,16 @@ import LocalStorage from "./local-storage";
 
 export default class Dom {
 
+    static loadPage() {
+        Dom.addProjectUi()
+        Dom.loadProjects()
+    };
+
+    static loadProjects() {
+        LocalStorage.retrieveTodoList().getProjects().forEach((project) => {
+            Dom.createNewProject(project.projectName)
+        });
+    }
 
     static createNewProject(projectName) {
         const userProjectsList = document.getElementById('user-projects-container');
@@ -20,7 +30,6 @@ export default class Dom {
         </div>
         </button>
         `
-      
     };
 
     static addProject() {
@@ -28,16 +37,17 @@ export default class Dom {
 
         const projectName = projectNameInput.value
 
-        if (projectName.value === "") {
+        if (projectName === "") {
             alert("Project name cannot be empty")
+            return
         }
 
-        // if (LocalStorage.retrieveTodoList().contains(projectName)) {
-        //     alert("Project names cannot be the same")
-        //     return
-        // }
+        if (LocalStorage.retrieveTodoList().getProjects().map((project) => project.projectName === projectName)) {
+            alert("Project names must be different")
+            projectNameInput.value = ""
+            return
+        }
 
-       
         LocalStorage.addProject(new Projects(projectName))
         Dom.createNewProject(projectName)
     }
@@ -56,18 +66,10 @@ export default class Dom {
             addProjectContainer.style.display = "none"
         });
 
-        createProjectButton.addEventListener('click', Dom.createNewProject); 
-
         createProjectButton.addEventListener('click', Dom.addProject); 
-
-        createProjectButton.addEventListener('keypress', Dom.handleKeydownInput)
     };
 
-    static handleKeydownInput(e) {
-        if (e.key === "Enter") {
-            Dom.addProject()
-        }
-    }
+   
 
     
 }
