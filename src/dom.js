@@ -25,7 +25,7 @@ export default class Dom {
         <i class="fa fa-th-list"></i>
         <span>${projectName}</span>
         </div>
-        <div class="delete-project-icon>
+        <div class="delete-project-icon">
         <i class="fa fa-times-circle"></i>
         </div>
         </button>
@@ -38,12 +38,12 @@ export default class Dom {
         const projectName = projectNameInput.value
 
         if (projectName === "") {
-            alert("Project name cannot be empty")
+            alert("Project name cannot be empty.")
             return
         }
 
         if (LocalStorage.retrieveTodoList().getProjects().map((project) => project.projectName === projectName)) {
-            alert("Project names must be different")
+            alert("Project names cannot be the same.")
             projectNameInput.value = ""
             return
         }

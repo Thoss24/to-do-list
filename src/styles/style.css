@@ -93,21 +93,6 @@ form button:hover {
     flex-direction: row;
 }
 
-.left-task-panel {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
-
-.left-task-panel > i, p {
-    font-size: 20px;
-}
-
-.right-task-panel {
-
-}
-
-
 
 /* project styling */
 
@@ -117,16 +102,6 @@ form button:hover {
     background-color: #666;
     padding: 20px;
 }
-/* 
-.project-ui-button {
-    border: none;
-    outline: none;
-    padding: 10px 16px;
-    background-color: #fcfdfd;
-    cursor: pointer;
-    font-size: 20px;
-    min-width: 60%;
-} */
 
 .active, .projectUiButton:hover {
     background-color: rgb(177, 172, 172);
@@ -192,6 +167,47 @@ form button:hover {
 .projects-header {
     font-size: 35px;
     margin-bottom: 20px;
+}
+
+/* Projects area styling */
+
+#user-projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-project-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    cursor: pointer;
+    height: 2rem;
+    box-sizing: border-box;
+    border: none;
+}
+
+.project-name-icon {
+    display: flex;
+    height: 100%;
+    font-size: 20px;
+    align-items: center;
+    width: 85%;
+}
+
+.delete-project-icon {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: #fda085;
+    background: gray;
+    font-size: 20px;
+    width: 15%;
+}
+
+.delete-project-icon:hover {
+    background: #fda085;
+    color: gray
 }
 
 
