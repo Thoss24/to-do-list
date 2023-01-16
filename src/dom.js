@@ -42,14 +42,17 @@ export default class Dom {
             return
         }
 
-        if (LocalStorage.retrieveTodoList().getProjects().map((project) => project.projectName === projectName)) {
+        if (LocalStorage.retrieveTodoList().containsProject(projectName)) {
             alert("Project names cannot be the same.")
             projectNameInput.value = ""
             return
         }
+        
+        // console.log(LocalStorage.retrieveTodoList().containsProject(projectName))
 
         LocalStorage.addProject(new Projects(projectName))
         Dom.createNewProject(projectName)
+
     }
 
     static addProjectUi() {
