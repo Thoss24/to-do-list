@@ -3,7 +3,7 @@ import Todo from "./add-todo";
 import List from "./get-projects";
 
 export default class LocalStorage {
-
+    // our new project and new todo's will be passed into this method to save it to localStorage allowing users to see projects and todo's after refreshing or closing browser
     static saveList(info) {
         // localStorage.setItem method uses a key value pair that will add the key 'todo-list' to the given storage object 
         localStorage.setItem('todoList', JSON.stringify(info))
@@ -27,5 +27,11 @@ export default class LocalStorage {
         todoList.createProject(project)
         LocalStorage.saveList(todoList)
         console.log(todoList)
+    }
+
+    static addTodo(todo) {
+        const todoList = LocalStorage.retrieveTodoList()
+        todoList.getProjects().addTask(todo)
+        LocalStorage.saveList(todoList)
     }
 }

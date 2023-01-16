@@ -19,6 +19,13 @@ header {
     align-items: center;
 }
 
+#title-icon {
+    color: #fda085;
+    background: white;
+    height: 30px;
+    width: 30px;
+}
+
 #container {
     display: flex;
     flex-direction: row;
@@ -56,7 +63,6 @@ form input {
     font-size: 2rem;
     border: none;
     background: white;
-    width: 80%;
 }
 
 #to-do-date {
@@ -161,15 +167,14 @@ form button:hover {
     font-size: 23px;
     font-weight: 300;
     color: white;
-    margin: 10px;
+    margin-top: 10px;
     cursor: pointer;
     padding: 10px;
-    min-width: 40%;
+    width: 60%;
 }
 
 #add-projects-button:hover {
-    background-color:  rgb(177, 172, 172);
-    color: black;
+    color: #fda085;
 }
 
 .projects-header {
@@ -191,9 +196,11 @@ form button:hover {
     justify-content: space-between;
     cursor: pointer;
     height: 2rem;
+    width: 20rem;
     box-sizing: border-box;
     border: none;
     background: white;
+    
 }
 
 .project-name-icon {
@@ -201,7 +208,13 @@ form button:hover {
     height: 100%;
     font-size: 20px;
     align-items: center;
-    width: 85%;
+    width: 88%;
+    margin-left: 10px;
+    gap: 10px;
+}
+
+#list-icon {
+    color: #fda085;
 }
 
 .delete-project-icon {
@@ -212,7 +225,7 @@ form button:hover {
     color: #fda085;
     background: white;
     font-size: 20px;
-    width: 15%;
+    width: 12%;
 }
 
 .delete-project-icon:hover {
