@@ -122,10 +122,27 @@ export default class Dom {
         createTodoButton.addEventListener('click', Dom.addTodo);
     };
 
-    static setActive() {
+    static selectedProject(event) {
+
+        const thisProject = this.children[0].children[1].textContent
+
+        // if (event.target.classList.containsProject() {
+        //     // this method is to delete project based on the class of the selected button. need to change "x" icon on projects to a button
+        // };
+
+        Dom.setActive(thisProject, this)
+    }
+
+    static setActive(name, button) {
         const projectButtons = document.querySelectorAll('.user-project-button');
 
-        projectButtons.forEach((project) => console.log(project))
+        projectButtons.forEach((button) => button.classList.remove('active'));
+
+        projectButtons.forEach((button) => button.addEventListener('click', Dom.selectedProject));
+
+        button.classList.add('active')
+
+        console.log(button)
     }
 
    
