@@ -7,15 +7,19 @@ export default class Dom {
 
     static loadPage() {
         Dom.addProjectUi();
+        Dom.addTodoUi();
         Dom.loadProjects();
+        Dom.setActive()
     };
 
+    // A method which creates the project ui for each project inside the projects array upon loading the page
     static loadProjects() {
         LocalStorage.retrieveTodoList().getProjects().forEach((project) => {
             Dom.createNewProject(project.projectName)
         });
     }
 
+    // Create the inner html for each project added
     static createNewProject(projectName) {
         const userProjectsList = document.getElementById('user-projects-container');
 
@@ -32,22 +36,26 @@ export default class Dom {
         `;
     };
 
+    // Create the inner html for each todo added
     static createNewTodo(todoName) {
-        const todoContainer = document.querySelector('.todo-container');
+        const todoListContainer = document.getElementById('tasks-list-container');
 
-        todoContainer.innerHTML += `
+        todoListContainer.innerHTML += `
         <button class="user-todo-button">
         <div class="todo-left-div"> 
         <i class="fa fa-check-circle" id="checked-icon"></i>
         <span>${todoName}</span>
         </div>
         <div class="todo-right-div">
+        <input type="date">
         <i class="fa fa-times-circle"></i>
         </div>
         </button>
         `
     }
 
+    // A method which creates an instance of the Projects class and invokes the addProject function which pushes the newly created instance into the projects array
+    // Also passing the value of the input field into the addProject and createNewProject functions as the project name
     static addProject() {
         const projectNameInput = document.getElementById('project-name-input');
 
@@ -66,15 +74,23 @@ export default class Dom {
 
         LocalStorage.addProject(new Projects(projectName));
         Dom.createNewProject(projectName)
+    };
+
+    static addTodo() {
+        const todoInput = document.getElementById('todo-input');
+
+        const todoName = todoInput.value;
+
+        LocalStorage.addTodo(todoName)
+        Dom.createNewTodo(todoName)
     }
 
+    // Event listeners to display the add project input
     static addProjectUi() {
-
         const addProjectContainer = document.getElementById('add-project-container');
         const addProjectButton = document.getElementById('add-projects-button');
         const cancelAddProjectButton = document.getElementById('cancel-add-project-button');
         const createProjectButton = document.getElementById('create-project-button');
-        const createTodoButton = document.querySelector('.create-todo-button');
 
         addProjectButton.addEventListener('click', () => {
             addProjectContainer.style.display = "flex"
@@ -85,9 +101,32 @@ export default class Dom {
         });
 
         createProjectButton.addEventListener('click', Dom.addProject); 
-
-        createTodoButton.addEventListener('click', Dom.createNewTodo);
     };
+
+
+    // Event listeners to display the add todo input
+    static addTodoUi() {
+        const createTodoButton = document.getElementById('create-todo-button');
+        const addTodoButton = document.getElementById('add-todo-button');
+        const todoContainer = document.querySelector('.todo-container');
+        const cancelTodoButton = document.getElementById('cancel-add-todo-button');
+        
+        addTodoButton.addEventListener('click', () => {
+            todoContainer.style.display = "flex"
+        });
+
+        cancelTodoButton.addEventListener('click', () => {
+            todoContainer.style.display = "none"
+        });
+
+        createTodoButton.addEventListener('click', Dom.addTodo);
+    };
+
+    static setActive() {
+        const projectButtons = document.querySelectorAll('.user-project-button');
+
+        projectButtons.forEach((project) => console.log(project))
+    }
 
    
 

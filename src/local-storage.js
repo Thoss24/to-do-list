@@ -26,12 +26,14 @@ export default class LocalStorage {
         const todoList = LocalStorage.retrieveTodoList()
         todoList.createProject(project)
         LocalStorage.saveList(todoList)
-        console.log(todoList)
+        // console.log(todoList)
     }
 
-    static addTodo(todo) {
+    static addTodo(projectName, todo) {
         const todoList = LocalStorage.retrieveTodoList()
-        todoList.getProjects().addTask(todo)
+        todoList.getProjects().getTasks()
+        // .addTask(todo)
         LocalStorage.saveList(todoList)
+        console.log(todoList)
     }
 }

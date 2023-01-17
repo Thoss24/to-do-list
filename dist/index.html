@@ -32,25 +32,27 @@
             </div>
 
             <div class="add-todo-container">
-                <h2>Add Todo</h2>
-                <form action="" class="todo-form">
-                    <input type="text" class="todo-input">
-                    <label for="to-do-date"></label>
-                    <input type="date" name="to-do-date" id="to-do-date">
-                    <button class="create-todo-button" type="button">
-                        <i class="fas fa-plus-square"></i>
-                    </button>
-                </form>
-                <h2 class="project-todo-title"></h2>
+                <h2 id="todo-header">Todo's</h2>
                 <div class="todo-container">
+                    <form action="" class="todo-form">
+                        <input type="text" id="todo-input">
+                        <label for="to-do-date"></label>
+                        <button id="create-todo-button" type="button">
+                            <i class="fas fa-plus-square"></i>
+                        </button>
+                        <button id="cancel-add-todo-button" type="button">
+                            <i class="fa fa-times-circle"></i>
+                        </button>
+                    </form>
                 </div>
+                <div id="tasks-list-container"></div>
+                <h2 class="project-todo-title"></h2>
+                <button id="add-todo-button"><i class="fa fa-plus"></i>Add Todo</button>
             </div>
         </div>
-            <!-- <div class="todo-container">
-                <ul class="todo-list"></ul>
-            </div> -->
-        </div>
-    </div>    
+           
+        <!-- </div> -->
+    <!-- </div>     -->
     <script src="main.js"></script>   
 </body>
 </html>
