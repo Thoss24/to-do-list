@@ -38,13 +38,13 @@ header {
 
 /* to-do styling */
 
-#todo-header {
+#project-title-heading {
     font-size: 35px;
     margin-bottom: 20px;
 }
 
 .todo-container {
-    display: none;
+    display: flex;
     flex-direction: column;
     background-color: #666;
 }
