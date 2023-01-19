@@ -44,7 +44,7 @@ header {
 }
 
 .todo-container {
-    display: flex;
+    display: none;
     flex-direction: column;
     background-color: #666;
 }

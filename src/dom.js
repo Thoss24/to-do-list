@@ -7,7 +7,7 @@ export default class Dom {
 
     static loadPage() {
         Dom.addProjectUi();
-        Dom.addTodoUi();
+        // Dom.addTodoUi();
         Dom.loadProjects();
         // Dom.loadToDos();
         Dom.setActive();
@@ -65,7 +65,6 @@ export default class Dom {
         </form>
         </div>
         `;
-
         Dom.loadToDos(projectName)
     }
 
@@ -129,16 +128,16 @@ export default class Dom {
         const createProjectButton = document.getElementById('create-project-button');
 
         addProjectButton.addEventListener('click', () => {
-            addProjectContainer.style.display = "flex"
+            addProjectContainer.style.display = "flex";
         });
 
         cancelAddProjectButton.addEventListener('click', (event) => {
-            addProjectContainer.style.display = "none"
+            addProjectContainer.style.display = "none";
         });
 
-        createProjectButton.addEventListener('click', Dom.addProject); 
-    };
+        createProjectButton.addEventListener('click', Dom.addProject)
 
+    };
 
     // Event listeners to display the add todo input
     static addTodoUi() {
@@ -147,15 +146,22 @@ export default class Dom {
         const todoContainer = document.querySelector('.todo-container');
         const cancelTodoButton = document.getElementById('cancel-add-todo-button');
         
-        // addTodoButton.addEventListener('click', () => {
-        //     todoContainer.style.display = "flex"
-        // });
+        addTodoButton.addEventListener('click', () => {
+            todoContainer.style.display = "flex";
+            addTodoButton.style.display = "none";
+        });
 
-        // cancelTodoButton.addEventListener('click', () => {
-        //     todoContainer.style.display = "none"
-        // });
+        cancelTodoButton.addEventListener('click', () => {
+            todoContainer.style.display = "none";
+            addTodoButton.style.display = "flex";
+        });
 
-        // createTodoButton.addEventListener('click', Dom.addTodo);
+        createTodoButton.addEventListener('click', Dom.addTodo);
+
+        createTodoButton.addEventListener('click', () => {
+            todoContainer.style.display = "none";
+            addTodoButton.style.display = "flex";
+        })
     };
 
     static selectedProject(event) {
@@ -168,14 +174,10 @@ export default class Dom {
 
         // passing in thisProject and this (which represents the button that was clicked) into the setActive method
         Dom.setActive(thisProject, this)
-        // Dom.loadToDos(projectTitle)
     }
 
     static setActive(name, button) {
         const projectButtons = document.querySelectorAll('.user-project-button');
-        const projectTitle = document.getElementById('project-title-heading');
-
-        projectTitle.textContent = name
 
         projectButtons.forEach((button) => button.classList.remove('active'));
 
@@ -186,6 +188,7 @@ export default class Dom {
         console.log(button)
         console.log(name)
         Dom.displayProjectContent(name)
+        Dom.addTodoUi()
     }
 
 }
