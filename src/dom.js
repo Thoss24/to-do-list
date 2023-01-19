@@ -11,6 +11,7 @@ export default class Dom {
         Dom.loadProjects();
         // Dom.loadToDos();
         Dom.setActive();
+        Dom.setActiveTodo();
     };
 
     // A method which creates the project ui for each project inside the projects array upon loading the page
@@ -30,7 +31,7 @@ export default class Dom {
         const userProjectsList = document.getElementById('user-projects-container');
 
         userProjectsList.innerHTML += `
-        <button class="user-project-button">
+        <button class="user-project-button" data-project-button>
         <div class="project-name-icon"> 
         <i class="fa fa-list-ul" id="list-icon"></i>
         <span>${projectName}</span>
@@ -73,7 +74,7 @@ export default class Dom {
         const todoListContainer = document.getElementById('tasks-list-container');
 
         todoListContainer.innerHTML += `
-        <button class="user-todo-button">
+        <button class="user-todo-button" data-todo-button>
         <div class="todo-left-div"> 
         <i class="fa fa-check-circle" id="checked-icon"></i>
         <span>${todoName}</span>
@@ -115,10 +116,18 @@ export default class Dom {
 
         const todoName = todoInput.value;
 
-        //
         LocalStorage.addTodo(projectTitleContent, new Todo(todoName));
         Dom.createNewTodo(todoName);
     }
+
+    static deleteTodo(project) {
+        const projectTitle = document.getElementById('project-title-heading');
+        const projectTitleContent = projectTitle.textContent;
+        const taskName = project.children[0].children[1].textContent // represents the text content of the selected task (project == the task button clicked by user)
+
+        LocalStorage.deleteTask(projectTitleContent, taskName)
+        Dom.loadToDos(projectTitleContent)
+    };
 
     // Event listeners to display the add project input
     static addProjectUi() {
@@ -145,6 +154,7 @@ export default class Dom {
         const addTodoButton = document.getElementById('add-todo-button');
         const todoContainer = document.querySelector('.todo-container');
         const cancelTodoButton = document.getElementById('cancel-add-todo-button');
+        const todoButtons = document.querySelectorAll('[data-todo-button]')
         
         addTodoButton.addEventListener('click', () => {
             todoContainer.style.display = "flex";
@@ -161,20 +171,41 @@ export default class Dom {
         createTodoButton.addEventListener('click', () => {
             todoContainer.style.display = "none";
             addTodoButton.style.display = "flex";
-        })
+        });
+
+        todoButtons.forEach((button) => button.addEventListener('click', Dom.selectedTask))
     };
 
     static selectedProject(event) {
         const projectButtons = document.querySelectorAll('.user-project-button');
         const thisProject = this.children[0].children[1].textContent
 
-        // if (event.target.classList.containsProject() {
-        //     // this method is to delete project based on the class of the selected button. need to change "x" icon on projects to a button
+        // if (event.target.classList.includes('active')) {
+            
         // };
 
         // passing in thisProject and this (which represents the button that was clicked) into the setActive method
         Dom.setActive(thisProject, this)
     }
+
+    static selectedTask(event) {
+        // if (event.target.classList.contains('fa-times-circle')) {
+        //     Dom.deleteTodo(this)
+        // }
+
+        console.log(event.target.classList)
+        Dom.setActiveTodo(this)
+    }
+
+    static setActiveTodo(todo) {
+        const todoButtons = document.querySelectorAll('user-todo-button');
+
+        todoButtons.forEach((button) => button.classList.remove('active'));
+
+        todoButtons.forEach((button) => button.addEventListener('click', Dom.selectedTask));
+
+        todo.classList.add('active')
+    } 
 
     static setActive(name, button) {
         const projectButtons = document.querySelectorAll('.user-project-button');
