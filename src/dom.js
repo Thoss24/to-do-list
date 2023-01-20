@@ -11,7 +11,8 @@ export default class Dom {
         Dom.loadProjects();
         // Dom.loadToDos();
         Dom.setActive();
-        Dom.setActiveTodo();
+        Dom.selectedTask();
+        // Dom.setActiveTodo();
     };
 
     // A method which creates the project ui for each project inside the projects array upon loading the page
@@ -21,6 +22,7 @@ export default class Dom {
         });
     }
 
+    // For each todo in the tasks array of a selected project, invoke the createNewTodo function
     static loadToDos(projectName) {
         // LocalStorage.retrieveTodoList().getSelectedProject(projectName).getTasks().forEach((todo) => Dom.createNewTodo(todo.name));
         LocalStorage.retrieveTodoList().getSelectedProject(projectName).getTasks().forEach((todo) => Dom.createNewTodo(todo.name))
@@ -43,6 +45,7 @@ export default class Dom {
         `;
     };
 
+    // Display the form to create a new todo
     static displayProjectContent(projectName) {
         const addTodoContent = document.querySelector('.add-todo-container');
 
@@ -84,7 +87,13 @@ export default class Dom {
         <i class="fa fa-times-circle"></i>
         </div>
         </button>
-        `
+        `;
+        Dom.setActiveTodo()
+    }
+
+    static clearTasksList() {
+        const taskListContainer = document.getElementById('tasks-list-container');
+        taskListContainer.textContent = ""
     }
 
     // A method which creates an instance of the Projects class and invokes the addProject function which pushes the newly created instance into the projects array
@@ -109,6 +118,7 @@ export default class Dom {
         Dom.createNewProject(projectName);
     };
 
+    // Todo methods
     static addTodo() {
         const projectTitle = document.getElementById('project-title-heading');
         const projectTitleContent = projectTitle.textContent
@@ -120,12 +130,14 @@ export default class Dom {
         Dom.createNewTodo(todoName);
     }
 
+    
     static deleteTodo(project) {
         const projectTitle = document.getElementById('project-title-heading');
         const projectTitleContent = projectTitle.textContent;
         const taskName = project.children[0].children[1].textContent // represents the text content of the selected task (project == the task button clicked by user)
 
         LocalStorage.deleteTask(projectTitleContent, taskName)
+        Dom.clearTasksList()
         Dom.loadToDos(projectTitleContent)
     };
 
@@ -173,38 +185,29 @@ export default class Dom {
             addTodoButton.style.display = "flex";
         });
 
-        todoButtons.forEach((button) => button.addEventListener('click', Dom.selectedTask))
+        todoButtons.forEach((button) => button.addEventListener('click', Dom.selectedTask));
     };
 
+    // Select project and tasks methods
     static selectedProject(event) {
         const projectButtons = document.querySelectorAll('.user-project-button');
         const thisProject = this.children[0].children[1].textContent
 
-        // if (event.target.classList.includes('active')) {
-            
-        // };
-
-        // passing in thisProject and this (which represents the button that was clicked) into the setActive method
-        Dom.setActive(thisProject, this)
+       Dom.setActive(thisProject, this)
     }
 
     static selectedTask(event) {
-        // if (event.target.classList.contains('fa-times-circle')) {
-        //     Dom.deleteTodo(this)
-        // }
-
-        console.log(event.target.classList)
-        Dom.setActiveTodo(this)
+        if (event.target.classList.contains('fa-times-circle')) {
+            Dom.deleteTodo(this)
+            return
+        }
     }
 
-    static setActiveTodo(todo) {
-        const todoButtons = document.querySelectorAll('user-todo-button');
+    // Set project and tasks as active methods
+    static setActiveTodo() {
+        const todoButtons = document.querySelectorAll('[data-todo-button]');
 
-        todoButtons.forEach((button) => button.classList.remove('active'));
-
-        todoButtons.forEach((button) => button.addEventListener('click', Dom.selectedTask));
-
-        todo.classList.add('active')
+        todoButtons.forEach((todoButton) => todoButton.addEventListener('click', Dom.selectedTask));
     } 
 
     static setActive(name, button) {
