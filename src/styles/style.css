@@ -43,6 +43,43 @@ header {
     margin-bottom: 20px;
 }
 
+#todo-date {
+    width: 70%;
+    cursor: text;
+    opacity: 0.5;
+}
+
+.todo-right-div {
+    display: flex;
+    align-items: center;
+    width: 15%;
+    height: 100%;
+}
+
+.delete-todo-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 30%;
+    font-size: 20px;
+    color: #fda085;
+    background: white;
+    cursor: pointer;
+}
+
+.delete-todo-div:hover {
+    background: #fda085;
+    color: white;
+}
+
+/* .todo-right-div > div > i {
+    height: 100%;
+    font-size: 20px;
+    color: #fda085;
+    cursor: pointer;
+} */
+
 .todo-container {
     display: none;
     flex-direction: column;
@@ -71,9 +108,9 @@ form input {
     background: white;
 }
 
-#to-do-date {
-    font-size: 1.9rem;
-    cursor: text;
+#todo-date:hover {
+    display: flex;
+    opacity: 1.0;
 }
 
 form button {
@@ -104,6 +141,11 @@ form button:hover {
 .user-todo-button {
     display: flex;
     flex-direction: row;
+    background: white;
+    border: none;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
     width: 600px;
 }
 

@@ -25,7 +25,7 @@ export default class Dom {
     // For each todo in the tasks array of a selected project, invoke the createNewTodo function
     static loadToDos(projectName) {
         // LocalStorage.retrieveTodoList().getSelectedProject(projectName).getTasks().forEach((todo) => Dom.createNewTodo(todo.name));
-        LocalStorage.retrieveTodoList().getSelectedProject(projectName).getTasks().forEach((todo) => Dom.createNewTodo(todo.name))
+        LocalStorage.retrieveTodoList().getSelectedProject(projectName).getTasks().forEach((todo) => Dom.createNewTodo(todo.name, "Add date"))
     }
 
     // Create the inner html for each project added
@@ -73,7 +73,7 @@ export default class Dom {
     }
 
     // Create the inner html for each todo added
-    static createNewTodo(todoName) {
+    static createNewTodo(todoName, todoDate) {
         const todoListContainer = document.getElementById('tasks-list-container');
 
         todoListContainer.innerHTML += `
@@ -83,8 +83,10 @@ export default class Dom {
         <span>${todoName}</span>
         </div>
         <div class="todo-right-div">
-        <input type="date">
+        <span id="todo-date">${todoDate}</span>
+        <div class="delete-todo-div">
         <i class="fa fa-times-circle"></i>
+        </div>
         </div>
         </button>
         `;
@@ -126,11 +128,22 @@ export default class Dom {
 
         const todoName = todoInput.value;
 
-        LocalStorage.addTodo(projectTitleContent, new Todo(todoName));
-        Dom.createNewTodo(todoName);
+        if (todoName === "") {
+            alert("Task name cannot be empty")
+            return
+        }
+
+        if (LocalStorage.retrieveTodoList().getSelectedProject(projectTitleContent).checkSelectedTask(todoName)) {
+            alert("Task names cannot be the same")
+            return
+        }
+
+        console.log(LocalStorage.retrieveTodoList().getSelectedProject(projectTitleContent))
+
+        LocalStorage.addTodo(projectTitleContent, new Todo(todoName, "Add date"));
+        Dom.createNewTodo(todoName, "Add date");
     }
 
-    
     static deleteTodo(project) {
         const projectTitle = document.getElementById('project-title-heading');
         const projectTitleContent = projectTitle.textContent;
@@ -157,7 +170,6 @@ export default class Dom {
         });
 
         createProjectButton.addEventListener('click', Dom.addProject)
-
     };
 
     // Event listeners to display the add todo input
@@ -203,13 +215,14 @@ export default class Dom {
         }
     }
 
-    // Set project and tasks as active methods
+    // Add event to each todo button to invoking the selectedTask method
     static setActiveTodo() {
         const todoButtons = document.querySelectorAll('[data-todo-button]');
 
         todoButtons.forEach((todoButton) => todoButton.addEventListener('click', Dom.selectedTask));
     } 
 
+    // Set project as to have active class
     static setActive(name, button) {
         const projectButtons = document.querySelectorAll('.user-project-button');
 
