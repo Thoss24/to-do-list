@@ -89,7 +89,7 @@ export default class Dom {
         <div class="todo-right-div">
         <span id="todo-date">${todoDate}</span>
         <div class="delete-todo-div">
-        <i class="fa fa-times-circle"></i>
+        <i class="fa fa-times"></i>
         </div>
         </div>
         </button>
@@ -207,13 +207,17 @@ export default class Dom {
     // Select project and tasks methods
     static selectedProject(event) {
         const projectButtons = document.querySelectorAll('.user-project-button');
-        const thisProject = this.children[0].children[1].textContent
+        const thisProject = this.children[0].children[1].textContent;
+
+        if (event.target.classList.contains('fa-times-circle')) {
+            console.log(event.target)
+        }
 
         Dom.setActive(thisProject, this)
     }
 
     static selectedTask(event) {
-        if (event.target.classList.contains('fa-times-circle')) {
+        if (event.target.classList.contains('fa-times')) {
             Dom.deleteTodo(this)
             return
         }
