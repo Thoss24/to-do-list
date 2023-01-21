@@ -23,7 +23,7 @@ export default class Projects {
     //Return the first task in the array that matches taskName.
     getSelectedTask(taskName) {
         // The find method returns the first element in the tasks array that matches by name
-        return this.tasks.find((task) => task.getProjectName() === taskName)
+        return this.tasks.find((task) => task.getName() === taskName)
     }
 
     //Check if the task already exists inside the tasks array.
@@ -43,7 +43,4 @@ export default class Projects {
         // using the filter method to create a shallow copy of the tasks array containing all tasks except the task chosen to be deleted
         this.tasks = this.tasks.filter((task) => task.name !== taskName)
     }
-
-
-
 }

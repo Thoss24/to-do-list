@@ -78,9 +78,13 @@ export default class Dom {
 
         todoListContainer.innerHTML += `
         <button class="user-todo-button" data-todo-button>
-        <div class="todo-left-div"> 
+        <div class="todo-left-div">
+        <div class="clear-todo-div"> 
         <i class="fa fa-check-circle" id="checked-icon"></i>
-        <span>${todoName}</span>
+        </div>
+        <span class="todo-text-content">${todoName}</span>
+        <input class="edit-todo-input"></input>
+        <i class="fa fa-check" id="close-edit-todo"></i>
         </div>
         <div class="todo-right-div">
         <span id="todo-date">${todoDate}</span>
@@ -205,13 +209,16 @@ export default class Dom {
         const projectButtons = document.querySelectorAll('.user-project-button');
         const thisProject = this.children[0].children[1].textContent
 
-       Dom.setActive(thisProject, this)
+        Dom.setActive(thisProject, this)
     }
 
     static selectedTask(event) {
         if (event.target.classList.contains('fa-times-circle')) {
             Dom.deleteTodo(this)
             return
+        }
+        if (event.target.classList.contains('todo-text-content')) {
+            Dom.editTodo(this)
         }
     }
 
@@ -238,5 +245,37 @@ export default class Dom {
         Dom.addTodoUi()
     }
 
+    static editTodo(todoText) {
+        const todoTextContent = todoText.children[0].children[1];
+        const editTodoInput = todoText.children[0].children[2];
+        const closeTodoInput = todoText.children[0].children[3];
+        const projectTitle = document.getElementById('project-title-heading').textContent;
+        const oldTodoName = todoTextContent.textContent;
+        
+        todoTextContent.style.display = "none";
+        editTodoInput.style.display = "flex";
+        closeTodoInput.style.display = "flex";
+
+        closeTodoInput.addEventListener('click', () => {
+
+            if (editTodoInput.value === "") {
+                alert("Todo name cannot be empty")
+                return
+            };
+
+            if (LocalStorage.retrieveTodoList().getSelectedProject(projectTitle).getSelectedTask(editTodoInput.value)) {
+                alert("Todo names cannot be the same")
+                return
+            };
+
+            todoTextContent.textContent = editTodoInput.value;
+            closeTodoInput.style.display = "none";
+            editTodoInput.style.display = "none";
+            todoTextContent.style.display = "flex";
+            LocalStorage.editTodo(projectTitle, oldTodoName, editTodoInput.value)
+        });
+    }
 }
+
+
 

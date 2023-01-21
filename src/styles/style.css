@@ -49,6 +49,51 @@ header {
     opacity: 0.5;
 }
 
+.todo-left-div {
+    display: flex;
+    align-items: center;
+    width: 85%;
+    height: 100%;
+}
+
+.clear-todo-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /* width: 30%; */
+    font-size: 20px;
+    color: #fda085;
+    background: white;
+    cursor: pointer;
+}
+
+.todo-text-content {
+    font-size: 18px;
+    cursor: text;
+}
+
+.todo-text-content:hover {
+    font-size: 19px;
+    cursor: text;
+}
+
+.edit-todo-input {
+    display: none;
+    margin-left: 10px;
+}
+
+#close-edit-todo {
+    display: none;
+    font-size: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#close-edit-todo:hover {
+    color: gray;
+}
+
 .todo-right-div {
     display: flex;
     align-items: center;
