@@ -122,6 +122,7 @@ export default class Dom {
 
         LocalStorage.addProject(new Projects(projectName));
         Dom.createNewProject(projectName);
+        Dom.setActive()
     };
 
     // Todo methods
@@ -257,6 +258,7 @@ export default class Dom {
 
         button.classList.add('active');
 
+        console.log("working")
         console.log(button)
         console.log(name)
         Dom.displayProjectContent(name)
