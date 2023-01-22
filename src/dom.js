@@ -80,7 +80,7 @@ export default class Dom {
         <button class="user-todo-button" data-todo-button>
         <div class="todo-left-div">
         <div class="clear-todo-div"> 
-        <i class="fa fa-check-circle" id="checked-icon"></i>
+        <i class="fa fa-circle" id="checked-icon"></i>
         </div>
         <span class="todo-text-content">${todoName}</span>
         <input class="edit-todo-input"></input>
@@ -158,6 +158,13 @@ export default class Dom {
         Dom.loadToDos(projectTitleContent)
     };
 
+    static deleteProject(projectName) {
+        const projectTitle = projectName.children[0].children[1].textContent;
+
+        LocalStorage.deleteProject(projectTitle)
+      
+    }
+
     // Event listeners to display the add project input
     static addProjectUi() {
         const addProjectContainer = document.getElementById('add-project-container');
@@ -210,14 +217,21 @@ export default class Dom {
         const thisProject = this.children[0].children[1].textContent;
 
         if (event.target.classList.contains('fa-times-circle')) {
-            console.log(event.target)
+            Dom.deleteProject(this)
+            event.target.parentNode.parentNode.remove()
+            return
+        }
+        if (event.target.classList.contains('delete-project-icon')) {
+            Dom.deleteProject(this)
+            event.target.parentNode.remove()
+            return
         }
 
         Dom.setActive(thisProject, this)
     }
 
     static selectedTask(event) {
-        if (event.target.classList.contains('fa-times')) {
+        if (event.target.classList.contains('delete-todo-div') || event.target.classList.contains('fa-times')) {
             Dom.deleteTodo(this)
             return
         }
