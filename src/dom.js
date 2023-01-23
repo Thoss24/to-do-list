@@ -25,7 +25,7 @@ export default class Dom {
     // For each todo in the tasks array of a selected project, invoke the createNewTodo function
     static loadToDos(projectName) {
         // LocalStorage.retrieveTodoList().getSelectedProject(projectName).getTasks().forEach((todo) => Dom.createNewTodo(todo.name));
-        LocalStorage.retrieveTodoList().getSelectedProject(projectName).getTasks().forEach((todo) => Dom.createNewTodo(todo.name, "Add date"))
+        LocalStorage.retrieveTodoList().getSelectedProject(projectName).getTasks().forEach((todo) => Dom.createNewTodo(todo.name, todo.date))
     }
 
     // Create the inner html for each project added
@@ -87,7 +87,9 @@ export default class Dom {
         <i class="fa fa-check" id="close-edit-todo"></i>
         </div>
         <div class="todo-right-div">
-        <span id="todo-date">${todoDate}</span>
+        <span id="todo-date" class="todo-date">${todoDate}</span>
+        <input type="date" id="add-todo-date" class="add-todo-date"></input>
+        <i class ="fa fa-check-square" id="confirm-date-icon"></i>
         <div class="delete-todo-div">
         <i class="fa fa-times"></i>
         </div>
@@ -239,6 +241,9 @@ export default class Dom {
         if (event.target.classList.contains('todo-text-content')) {
             Dom.editTodo(this)
         }
+        if (event.target.classList.contains('todo-date')) {
+            Dom.editTodoDate(this)
+        }
     }
 
     // Add event to each todo button to invoking the selectedTask method
@@ -295,6 +300,30 @@ export default class Dom {
             LocalStorage.editTodo(projectTitle, oldTodoName, editTodoInput.value)
         });
     }
+
+    static editTodoDate(todoDate) {
+        const projectTitle = document.getElementById('project-title-heading').textContent;
+        const todoName = todoDate.children[0].children[1].textContent;
+        const todoDateText = todoDate.children[1].children[0];
+        const todoDateInput = todoDate.children[1].children[1];
+        const confirmTodoDate = todoDate.children[1].children[2];
+
+        todoDateText.style.display = "none";
+        todoDateInput.style.display = "flex";
+        confirmTodoDate.style.display = "flex";
+
+        confirmTodoDate.addEventListener('click', () => {
+            LocalStorage.editTodoDate(projectTitle, todoName, todoDateInput.value);
+            todoDateText.textContent = todoDateInput.value;
+            todoDateText.style.display = "flex";
+            todoDateInput.style.display = "none";
+            confirmTodoDate.style.display = "none";
+            console.log(LocalStorage.retrieveTodoList().getSelectedProject(projectTitle).getSelectedTask(todoName))
+        });
+
+
+    };
+
 }
 
 

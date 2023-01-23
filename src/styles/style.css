@@ -43,16 +43,14 @@ header {
     margin-bottom: 20px;
 }
 
-#todo-date {
-    width: 70%;
-    cursor: text;
-    opacity: 0.5;
+#add-todo-date {
+    display: none;
 }
 
 .todo-left-div {
     display: flex;
     align-items: center;
-    width: 85%;
+    width: 71%;
     height: 100%;
 }
 
@@ -103,8 +101,18 @@ header {
 .todo-right-div {
     display: flex;
     align-items: center;
-    width: 15%;
+    width: 29%;
     height: 100%;
+}
+
+#confirm-date-icon {
+    display: none;
+    color: #fda085;
+    background: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 3px;
 }
 
 .delete-todo-div {
@@ -159,8 +167,17 @@ form input {
     background: white;
 }
 
-#todo-date:hover {
+#todo-date {
     display: flex;
+    justify-content: end;
+    width: 70%;
+    cursor: text;
+    opacity: 0.5;
+    margin-right: 8px;
+}
+
+#todo-date:hover {
+    font-size: 14px;
     opacity: 1.0;
 }
 

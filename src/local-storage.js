@@ -55,4 +55,10 @@ export default class LocalStorage {
         todoList.deleteProject(projectName)
         LocalStorage.saveList(todoList)
     }
+
+    static editTodoDate(projectName, todo, newDate) {
+        const todoList = LocalStorage.retrieveTodoList()
+        todoList.getSelectedProject(projectName).getSelectedTask(todo).setDate(newDate)
+        LocalStorage.saveList(todoList)
+    }
 }
