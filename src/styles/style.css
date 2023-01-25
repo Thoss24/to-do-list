@@ -8,16 +8,23 @@ body {
     background-color: #666;
     color: white;
     font-family: sans-serif;
-    min-height: 100vh;
+  
 }
 
 header {
     font-size: 1.5rem;
     min-height: 10vh;
+    min-width: 1360px;
     display: flex;
     justify-content: start;
-    margin-left: 20px;
     align-items: center;
+    background: rgb(53, 52, 52);
+    color: white;
+    border: 1px solid grey;
+}
+
+header > h1 {
+    margin-left: 20px;
 }
 
 #title-icon {
@@ -28,7 +35,8 @@ header {
 #container {
     display: flex;
     flex-direction: row;
-    height: 100vh;
+    min-height: 100vh;
+    /* min-width: 100vw; */
 }
 
 .divider {
@@ -150,9 +158,11 @@ header {
 .add-todo-container {
     display: flex;
     flex-direction: column;
-    width: 900px;
-    background-color: #666;
+    width: 100%;
+    min-width: 800px;
+    background: rgb(104, 101, 101);
     padding: 20px;
+    border: 1px solid gray;
 }
 
 form button {
@@ -229,7 +239,7 @@ form button:hover {
 #add-todo-button {
     border-radius: 8px;
     display: flex;
-    background-color: #666;
+    background: rgb(107, 102, 102);
     border: none;
     font-size: 23px;
     font-weight: 300;
@@ -237,6 +247,7 @@ form button:hover {
     margin-top: 10px;
     cursor: pointer;
     padding: 10px;
+    width: 150px;
 }
 
 #add-todo-button:hover {
@@ -249,8 +260,10 @@ form button:hover {
     display: flex;
     flex-direction: column;
     min-width: 560px;
-    background-color: #666;
+    /* background-color: #666; */
+    background: rgb(78, 77, 77);
     padding: 20px;
+    border: 1px solid gray;
 }
 
 .active, .projectUiButton:hover {
@@ -282,12 +295,21 @@ form button:hover {
     display: flex;
 } */
 
-.project-form, .todo-form {
+.project-form {
     min-height: 10vh;
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    background: rgb(78, 77, 77);
 } 
+
+.todo-form {
+    min-height: 10vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: rgb(104, 101, 101);
+}
 
 #add-project-container {
     display: none;
@@ -298,7 +320,7 @@ form button:hover {
 #add-projects-button {
     border-radius: 8px;
     display: flex;
-    background-color: #666;
+    background: rgb(78, 77, 77);
     border: none;
     font-size: 23px;
     font-weight: 300;
