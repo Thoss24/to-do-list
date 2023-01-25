@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/Thoss24/to-do-list/issues"
   },
-  "homepage": "https://github.com/Thoss24/to-do-list#readme",
+  "homepage": "https://github.com/Thoss24/to-do-list",
   "devDependencies": {
     "css-loader": "^6.7.1",
     "webpack": "^5.74.0",
